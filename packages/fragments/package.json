@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/fragments",
   "description": "Fragments which can be used to describe a fixed-width format.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,13 +21,13 @@
     "uglify-js": "uglifyjs index.babel.js --compress --mangle --toplevel --output index.min.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/preset-env": "^7.1.0",
-    "jasmine": "^3.2.0",
-    "jasmine-expect-moment": "^0.1.1",
-    "nyc": "^13.0.1",
-    "uglify-js": "^3.4.9"
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "jasmine": "3.2.0",
+    "jasmine-expect-moment": "0.1.1",
+    "nyc": "13.0.1",
+    "uglify-js": "3.4.9"
   },
   "dependencies": {
     "moment-timezone": "^0.5.21"
