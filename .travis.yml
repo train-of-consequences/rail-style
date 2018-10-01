@@ -17,6 +17,6 @@ jobs:
       skip_cleanup: true
       on:
         branch: master
-        repo: rail-style/fragments
+        repo: train-of-consequences/rail-style
 env:
   secure: voewGdN9C5AMG28LOIikfJJZ83eT1Z6zu3jNbaZJth5TAFaWvVj313PUDv2hgsMfF6xOFUpm6xJno+ixqVb7pWH2Pq+dMWZKd6lUU7T897Q8Noi6bWzvPfaXZ+jk41ZKClILROB7hPBsuc5gcf6Hnq8pZFCdNaT3TKI6/Sstk2m12yNh6nSp52WwmldbkGd2/QOtqPvp+sWrS/hs3zV8j9VPyqytakiwQM1S7H43y0u44h2WOWQRbTwNOnn8MiG8RAY4BytFki1V+74t7vpfZ05uon+gvF5w1jx8Z+1qWSyAP+uXTs+MdxoiGZLXppy3CAMFxZFhohsTOn1cz8KqvyiL/pArhFg5cPucRnoGKhXgky/1gG0yRD90ZlIxJ3iDkt1/5WzypVVPqp6hG2Ct5sjGMW/RCRAxarIHNlka79V8wTxPTbEiWhMKp1PRCruuQJttI5LLMQ6dTwY9PXR28N45OLZET2eKRkUGhq4FeZt/S78xwm96YKOhuYBkLGqTvKfEJHfqNZ9akJ72E/7JW3eG9wnpotlHOUsaV/BZOXhGJ5RkT0IIn6tSiI3zHIMAJSfsYFt58+Vda1HKS9dpI7qIZI/s1dVPakyklF3/KNvjMc2Hu2Y0IDUdY450KIBAESbpuwE93lHmxNx/uKDA1WNrxYqtjhbyiDejI/6SFTY=
