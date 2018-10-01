@@ -13,6 +13,7 @@
   "files": [
     "index.min.js"
   ],
+  "main": "index.min.js",
   "scripts": {
     "babel": "babel index.js --out-file index.babel.js",
     "babelTests": "babel tests.js --out-file tests.babel.js",
