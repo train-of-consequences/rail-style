@@ -26,7 +26,7 @@ fs.readdir(path.join(`..`, `packages`), (error, files) => {
 
       if (!version) {
         const fragments = json.version.split(`.`)
-        fragments[fragments.length - 1] = parseInt(fragments[fragments.length - 1] + 1).toString()
+        fragments[fragments.length - 1] = (parseInt(fragments[fragments.length - 1]) + 1).toString()
         version = fragments.join(`.`)
       }
 
