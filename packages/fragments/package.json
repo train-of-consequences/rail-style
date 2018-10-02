@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/fragments",
   "description": "Fragments which can be used to describe a fixed-width format.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "repository": {
     "type": "git",
