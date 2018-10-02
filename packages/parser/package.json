@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/parser",
   "description": "\"SAX-like\" streaming parsing of fixed-width text files.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "@babel/cli": "7.1.2",
     "@babel/core": "7.1.2",
     "@babel/preset-env": "7.1.0",
-    "@rail-style/fragments": "0.0.4",
+    "@rail-style/fragments": "0.0.5",
     "babel-plugin-istanbul": "^5.1.0",
     "cross-env": "^5.2.0",
     "jasmine": "3.2.0",
@@ -37,6 +37,6 @@
     "instrument": false
   },
   "peerDependencies": {
-    "@rail-style/fragments": "0.0.4"
+    "@rail-style/fragments": "0.0.5"
   }
 }
