@@ -1,6 +1,6 @@
 import moment from "moment-timezone"
 import "jasmine-expect-moment"
-import * as index from "./index.babel"
+import * as index from "./index.coverage"
 
 const runMatching = (description, fragment, text, verifyParsed) => describe(description, () => {
   let matched

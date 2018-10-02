@@ -7,9 +7,10 @@ jobs:
     install:
     - npm install --prefix packages/fragments
     script:
-    - npm run-script babel --prefix packages/fragments
+    - npm run-script babelCoverage --prefix packages/fragments
     - npm run-script babelTests --prefix packages/fragments
     - npm run-script jasmine --prefix packages/fragments
+    - npm run-script babel --prefix packages/fragments
     - npm run-script uglify-js --prefix packages/fragments
     deploy:
     - provider: script

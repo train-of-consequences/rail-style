@@ -4,7 +4,7 @@
     {
       "label": "@rail-style/fragments",
       "type": "shell",
-      "command": "cd packages/fragments && npm install && npm run-script babel && npm run-script babelTests && npm run-script jasmine && npm run-script uglify-js",
+      "command": "cd packages/fragments && npm install && npm run-script babelCoverage && npm run-script babelTests && npm run-script jasmine && npm run-script babel && npm run-script uglify-js",
       "group": "build",
       "problemMatcher": []
     },

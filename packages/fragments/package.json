@@ -16,14 +16,17 @@
   "main": "index.min.js",
   "scripts": {
     "babel": "babel index.js --out-file index.babel.js",
+    "babelCoverage": "cross-env NODE_ENV=test babel index.js --out-file index.coverage.js",
     "babelTests": "babel tests.js --out-file tests.babel.js",
-    "jasmine": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 --include index.babel.js jasmine JASMINE_CONFIG_PATH=jasmine.json",
+    "jasmine": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 --include index.js jasmine JASMINE_CONFIG_PATH=jasmine.json",
     "uglify-js": "uglifyjs index.babel.js --compress --mangle --toplevel --output index.min.js"
   },
   "devDependencies": {
     "@babel/cli": "7.1.2",
     "@babel/core": "7.1.2",
     "@babel/preset-env": "7.1.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "cross-env": "^5.2.0",
     "jasmine": "3.2.0",
     "jasmine-expect-moment": "0.1.1",
     "nyc": "13.0.1",
@@ -31,5 +34,9 @@
   },
   "dependencies": {
     "moment-timezone": "^0.5.21"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
   }
 }
