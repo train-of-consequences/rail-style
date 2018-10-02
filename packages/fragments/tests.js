@@ -19,7 +19,7 @@ const runMatching = (description, fragment, text, verifyParsed) => describe(desc
 const runNotMatching = (description, fragment, name, text) => describe(description, () => {
   let matched
   beforeEach(() => {
-    matched = new RegExp(`^${fragment.regex}$`).exec(text)
+    matched = new RegExp(`^PRECEDING123!(${fragment.regex})!TRAILING456$`).exec(`PRECEDING123!${text}!TRAILING456`)
   })
   it(`does not match`, () => expect(matched).toBeNull())
 })
