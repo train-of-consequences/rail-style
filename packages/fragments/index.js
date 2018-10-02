@@ -47,3 +47,13 @@ export const yyyymmddRequired = {
   regex: `[0-9]{8}`,
   parse: text => momentTz(text, `YYYYMMDD`, `Europe/London`)
 }
+
+export const stringOptional = length => ({
+  regex: `.{${length}}`,
+  parse: text => text.trim() || null
+})
+
+export const stringRequired = length => ({
+  regex: `\\S.{${length - 1}}`,
+  parse: text => text.trim()
+})

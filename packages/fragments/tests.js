@@ -303,3 +303,120 @@ describe(`yyyymmddRequired`, () => {
   runNotMatching(`too few spaces`, index.yyyymmddRequired, `       `)
   runNotMatching(`too many spaces`, index.yyyymmddRequired, `         `)
 })
+
+describe(`stringOptional`, () => {
+  runMatching(
+    `full length`, index.stringOptional(9), `World, Hi`,
+    parsed => expect(parsed).toEqual(`World, Hi`)
+  )
+  runMatching(
+    `trailing spaces filling the same space`, index.stringOptional(9),
+    `Worl     `, parsed => expect(parsed).toEqual(`Worl`)
+  )
+  runMatching(
+    `spaces filling the same space`, index.stringOptional(9), `         `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(
+    `full length extra leading character`, index.stringOptional(9), `gWorld, Hi`
+  )
+  runNotMatching(
+    `full length extra leading space`, index.stringOptional(9), ` World, Hi`
+  )
+  runNotMatching(
+    `full length extra trailing character`, index.stringOptional(9),
+    `World, Hig`
+  )
+  runNotMatching(
+    `full length extra trailing space`, index.stringOptional(9), `World, Hi `
+  )
+  runNotMatching(
+    `trailing spaces extra leading character`, index.stringOptional(9),
+    `aWorl     `
+  )
+  runNotMatching(
+    `trailing spaces extra leading space`, index.stringOptional(9),
+    ` Worl     `
+  )
+  runNotMatching(
+    `trailing spaces extra trailing character`, index.stringOptional(9),
+    `Worl     a`
+  )
+  runNotMatching(
+    `trailing spaces extra trailing space`, index.stringOptional(9),
+    `Worl      `
+  )
+  runNotMatching(
+    `spaces extra leading character`, index.stringOptional(9), `a         `
+  )
+  runNotMatching(
+    `spaces extra trailing character`, index.stringOptional(9), `         a`
+  )
+  runNotMatching(`spaces extra space`, index.stringOptional(9), `          `)
+  runNotMatching(
+    `full length too short`, index.stringOptional(9), `World, H`
+  )
+  runNotMatching(
+    `trailing spaces too short`, index.stringOptional(9),
+    `Worl    `
+  )
+  runNotMatching(`spaces too short`, index.stringOptional(9), `        `)
+})
+
+describe(`stringRequired`, () => {
+  runMatching(
+    `full length`, index.stringRequired(9), `World, Hi`,
+    parsed => expect(parsed).toEqual(`World, Hi`)
+  )
+  runMatching(
+    `trailing spaces filling the same space`, index.stringRequired(9),
+    `Worl     `, parsed => expect(parsed).toEqual(`Worl`)
+  )
+  runNotMatching(
+    `spaces filling the same space`, index.stringRequired(9), `         `
+  )
+  runNotMatching(
+    `full length extra leading character`, index.stringRequired(9), `gWorld, Hi`
+  )
+  runNotMatching(
+    `full length extra leading space`, index.stringRequired(9), ` World, Hi`
+  )
+  runNotMatching(
+    `full length extra trailing character`, index.stringRequired(9),
+    `World, Hig`
+  )
+  runNotMatching(
+    `full length extra trailing space`, index.stringRequired(9), `World, Hi `
+  )
+  runNotMatching(
+    `trailing spaces extra leading character`, index.stringRequired(9),
+    `aWorl     `
+  )
+  runNotMatching(
+    `trailing spaces extra leading space`, index.stringRequired(9),
+    ` Worl     `
+  )
+  runNotMatching(
+    `trailing spaces extra trailing character`, index.stringRequired(9),
+    `Worl     a`
+  )
+  runNotMatching(
+    `trailing spaces extra trailing space`, index.stringRequired(9),
+    `Worl      `
+  )
+  runNotMatching(
+    `spaces extra leading character`, index.stringRequired(9), `a         `
+  )
+  runNotMatching(
+    `spaces extra trailing character`, index.stringRequired(9), `         a`
+  )
+  runNotMatching(`spaces extra space`, index.stringRequired(9), `          `)
+  runNotMatching(
+    `full length too short`, index.stringRequired(9), `World, H`
+  )
+  runNotMatching(
+    `trailing spaces too short`, index.stringRequired(9),
+    `Worl    `
+  )
+  runNotMatching(`spaces too short`, index.stringRequired(9), `        `)
+})
