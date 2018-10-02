@@ -33,20 +33,6 @@ fs.readdir(path.join(`..`, `packages`), (error, files) => {
 
       json.version = version
 
-      const forObject = object => {
-        for (const key in object) {
-          if (!/^@rail-style\/.*$/i.test(key)) {
-            continue
-          }
-
-          object[key] = version
-        }
-      }
-
-      forObject(json.dependencies)
-      forObject(json.devDependencies)
-      forObject(json.peerDependencies)
-
       fs.writeFile(path.join(`..`, `packages`, file, `package.json`), JSON.stringify(json, null, 2) + `\n`, error => {
         if (error) {
           throw error
