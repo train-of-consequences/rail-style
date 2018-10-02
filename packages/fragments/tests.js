@@ -1,6 +1,6 @@
 import moment from "moment-timezone"
 import "jasmine-expect-moment"
-import * as index from "./index.coverage"
+import * as fragments from "./index.coverage"
 
 const runMatching = (description, fragment, text, verifyParsed) => describe(description, () => {
   let matched
@@ -26,609 +26,609 @@ const runNotMatching = (description, fragment, text) => describe(description, ()
 
 describe(`ddmmyyOptional`, () => {
   runMatching(
-    `early before BST`, index.ddmmyyOptional, `030123`,
+    `early before BST`, fragments.ddmmyyOptional, `030123`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.ddmmyyOptional, `220323`,
+    `late before BST`, fragments.ddmmyyOptional, `220323`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.ddmmyyOptional, `280323`,
+    `early BST`, fragments.ddmmyyOptional, `280323`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.ddmmyyOptional, `251023`,
+    `late BST`, fragments.ddmmyyOptional, `251023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.ddmmyyOptional, `301023`,
+    `early after BST`, fragments.ddmmyyOptional, `301023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.ddmmyyOptional, `281223`,
+    `late after BST`, fragments.ddmmyyOptional, `281223`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.ddmmyyOptional, `28122`)
-  runNotMatching(`extra leading digit`, index.ddmmyyOptional, `0281223`)
-  runNotMatching(`extra trailing digits`, index.ddmmyyOptional, `2812230`)
-  runNotMatching(`non-numeric`, index.ddmmyyOptional, `28a223`)
-  runMatching(`spaces filling the same space`, index.ddmmyyOptional, `      `,
+  runNotMatching(`too few digits`, fragments.ddmmyyOptional, `28122`)
+  runNotMatching(`extra leading digit`, fragments.ddmmyyOptional, `0281223`)
+  runNotMatching(`extra trailing digits`, fragments.ddmmyyOptional, `2812230`)
+  runNotMatching(`non-numeric`, fragments.ddmmyyOptional, `28a223`)
+  runMatching(`spaces filling the same space`, fragments.ddmmyyOptional, `      `,
     parsed => expect(parsed).toBeNull()
   )
-  runNotMatching(`too few spaces`, index.ddmmyyOptional, `     `)
-  runNotMatching(`too many spaces`, index.ddmmyyOptional, `       `)
+  runNotMatching(`too few spaces`, fragments.ddmmyyOptional, `     `)
+  runNotMatching(`too many spaces`, fragments.ddmmyyOptional, `       `)
 })
 
 describe(`ddmmyyRequired`, () => {
   runMatching(
-    `early before BST`, index.ddmmyyRequired, `030123`,
+    `early before BST`, fragments.ddmmyyRequired, `030123`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.ddmmyyRequired, `220323`,
+    `late before BST`, fragments.ddmmyyRequired, `220323`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.ddmmyyRequired, `280323`,
+    `early BST`, fragments.ddmmyyRequired, `280323`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.ddmmyyRequired, `251023`,
+    `late BST`, fragments.ddmmyyRequired, `251023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.ddmmyyRequired, `301023`,
+    `early after BST`, fragments.ddmmyyRequired, `301023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.ddmmyyRequired, `281223`,
+    `late after BST`, fragments.ddmmyyRequired, `281223`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.ddmmyyRequired, `28122`)
-  runNotMatching(`extra leading digit`, index.ddmmyyRequired, `0281223`)
-  runNotMatching(`extra trailing digits`, index.ddmmyyRequired, `2812230`)
-  runNotMatching(`non-numeric`, index.ddmmyyRequired, `28a223`)
-  runNotMatching(`spaces filling the same space`, index.ddmmyyRequired, `      `)
-  runNotMatching(`too few spaces`, index.ddmmyyRequired, `     `)
-  runNotMatching(`too many spaces`, index.ddmmyyRequired, `       `)
+  runNotMatching(`too few digits`, fragments.ddmmyyRequired, `28122`)
+  runNotMatching(`extra leading digit`, fragments.ddmmyyRequired, `0281223`)
+  runNotMatching(`extra trailing digits`, fragments.ddmmyyRequired, `2812230`)
+  runNotMatching(`non-numeric`, fragments.ddmmyyRequired, `28a223`)
+  runNotMatching(`spaces filling the same space`, fragments.ddmmyyRequired, `      `)
+  runNotMatching(`too few spaces`, fragments.ddmmyyRequired, `     `)
+  runNotMatching(`too many spaces`, fragments.ddmmyyRequired, `       `)
 })
 
 describe(`ddmmyyyyOptional`, () => {
   runMatching(
-    `early before BST`, index.ddmmyyyyOptional, `03012023`,
+    `early before BST`, fragments.ddmmyyyyOptional, `03012023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.ddmmyyyyOptional, `22032023`,
+    `late before BST`, fragments.ddmmyyyyOptional, `22032023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.ddmmyyyyOptional, `28032023`,
+    `early BST`, fragments.ddmmyyyyOptional, `28032023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.ddmmyyyyOptional, `25102023`,
+    `late BST`, fragments.ddmmyyyyOptional, `25102023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.ddmmyyyyOptional, `30102023`,
+    `early after BST`, fragments.ddmmyyyyOptional, `30102023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.ddmmyyyyOptional, `28122023`,
+    `late after BST`, fragments.ddmmyyyyOptional, `28122023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.ddmmyyyyOptional, `2812202`)
-  runNotMatching(`extra leading digit`, index.ddmmyyyyOptional, `028122023`)
-  runNotMatching(`extra trailing digits`, index.ddmmyyyyOptional, `281220230`)
-  runNotMatching(`non-numeric`, index.ddmmyyyyOptional, `28a22023`)
-  runMatching(`spaces filling the same space`, index.ddmmyyyyOptional, `        `,
+  runNotMatching(`too few digits`, fragments.ddmmyyyyOptional, `2812202`)
+  runNotMatching(`extra leading digit`, fragments.ddmmyyyyOptional, `028122023`)
+  runNotMatching(`extra trailing digits`, fragments.ddmmyyyyOptional, `281220230`)
+  runNotMatching(`non-numeric`, fragments.ddmmyyyyOptional, `28a22023`)
+  runMatching(`spaces filling the same space`, fragments.ddmmyyyyOptional, `        `,
     parsed => expect(parsed).toBeNull()
   )
-  runNotMatching(`too few spaces`, index.ddmmyyyyOptional, `       `)
-  runNotMatching(`too many spaces`, index.ddmmyyyyOptional, `         `)
+  runNotMatching(`too few spaces`, fragments.ddmmyyyyOptional, `       `)
+  runNotMatching(`too many spaces`, fragments.ddmmyyyyOptional, `         `)
 })
 
 describe(`ddmmyyyyRequired`, () => {
   runMatching(
-    `early before BST`, index.ddmmyyyyRequired, `03012023`,
+    `early before BST`, fragments.ddmmyyyyRequired, `03012023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.ddmmyyyyRequired, `22032023`,
+    `late before BST`, fragments.ddmmyyyyRequired, `22032023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.ddmmyyyyRequired, `28032023`,
+    `early BST`, fragments.ddmmyyyyRequired, `28032023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.ddmmyyyyRequired, `25102023`,
+    `late BST`, fragments.ddmmyyyyRequired, `25102023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.ddmmyyyyRequired, `30102023`,
+    `early after BST`, fragments.ddmmyyyyRequired, `30102023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.ddmmyyyyRequired, `28122023`,
+    `late after BST`, fragments.ddmmyyyyRequired, `28122023`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.ddmmyyyyRequired, `2812202`)
-  runNotMatching(`extra leading digit`, index.ddmmyyyyRequired, `028122023`)
-  runNotMatching(`extra trailing digits`, index.ddmmyyyyRequired, `281220230`)
-  runNotMatching(`non-numeric`, index.ddmmyyyyRequired, `28a22023`)
-  runNotMatching(`spaces filling the same space`, index.ddmmyyyyRequired, `        `)
-  runNotMatching(`too few spaces`, index.ddmmyyyyRequired, `       `)
-  runNotMatching(`too many spaces`, index.ddmmyyyyRequired, `         `)
+  runNotMatching(`too few digits`, fragments.ddmmyyyyRequired, `2812202`)
+  runNotMatching(`extra leading digit`, fragments.ddmmyyyyRequired, `028122023`)
+  runNotMatching(`extra trailing digits`, fragments.ddmmyyyyRequired, `281220230`)
+  runNotMatching(`non-numeric`, fragments.ddmmyyyyRequired, `28a22023`)
+  runNotMatching(`spaces filling the same space`, fragments.ddmmyyyyRequired, `        `)
+  runNotMatching(`too few spaces`, fragments.ddmmyyyyRequired, `       `)
+  runNotMatching(`too many spaces`, fragments.ddmmyyyyRequired, `         `)
 })
 
 describe(`yymmddOptional`, () => {
   runMatching(
-    `early before BST`, index.yymmddOptional, `230103`,
+    `early before BST`, fragments.yymmddOptional, `230103`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.yymmddOptional, `230322`,
+    `late before BST`, fragments.yymmddOptional, `230322`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.yymmddOptional, `230328`,
+    `early BST`, fragments.yymmddOptional, `230328`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.yymmddOptional, `231025`,
+    `late BST`, fragments.yymmddOptional, `231025`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.yymmddOptional, `231030`,
+    `early after BST`, fragments.yymmddOptional, `231030`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.yymmddOptional, `231228`,
+    `late after BST`, fragments.yymmddOptional, `231228`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.yymmddOptional, `21228`)
-  runNotMatching(`extra leading digit`, index.yymmddOptional, `0231228`)
-  runNotMatching(`extra trailing digits`, index.yymmddOptional, `2312280`)
-  runNotMatching(`non-numeric`, index.yymmddOptional, `23a228`)
-  runMatching(`spaces filling the same space`, index.yymmddOptional, `      `,
+  runNotMatching(`too few digits`, fragments.yymmddOptional, `21228`)
+  runNotMatching(`extra leading digit`, fragments.yymmddOptional, `0231228`)
+  runNotMatching(`extra trailing digits`, fragments.yymmddOptional, `2312280`)
+  runNotMatching(`non-numeric`, fragments.yymmddOptional, `23a228`)
+  runMatching(`spaces filling the same space`, fragments.yymmddOptional, `      `,
     parsed => expect(parsed).toBeNull()
   )
-  runNotMatching(`too few spaces`, index.yymmddOptional, `     `)
-  runNotMatching(`too many spaces`, index.yymmddOptional, `       `)
+  runNotMatching(`too few spaces`, fragments.yymmddOptional, `     `)
+  runNotMatching(`too many spaces`, fragments.yymmddOptional, `       `)
 })
 
 describe(`yymmddRequired`, () => {
   runMatching(
-    `early before BST`, index.yymmddRequired, `230103`,
+    `early before BST`, fragments.yymmddRequired, `230103`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.yymmddRequired, `230322`,
+    `late before BST`, fragments.yymmddRequired, `230322`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.yymmddRequired, `230328`,
+    `early BST`, fragments.yymmddRequired, `230328`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.yymmddRequired, `231025`,
+    `late BST`, fragments.yymmddRequired, `231025`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.yymmddRequired, `231030`,
+    `early after BST`, fragments.yymmddRequired, `231030`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.yymmddRequired, `231228`,
+    `late after BST`, fragments.yymmddRequired, `231228`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.yymmddRequired, `23122`)
-  runNotMatching(`extra leading digit`, index.yymmddRequired, `0231228`)
-  runNotMatching(`extra trailing digits`, index.yymmddRequired, `2312280`)
-  runNotMatching(`non-numeric`, index.yymmddRequired, `23a228`)
-  runNotMatching(`spaces filling the same space`, index.yymmddRequired, `      `)
-  runNotMatching(`too few spaces`, index.yymmddRequired, `     `)
-  runNotMatching(`too many spaces`, index.yymmddRequired, `       `)
+  runNotMatching(`too few digits`, fragments.yymmddRequired, `23122`)
+  runNotMatching(`extra leading digit`, fragments.yymmddRequired, `0231228`)
+  runNotMatching(`extra trailing digits`, fragments.yymmddRequired, `2312280`)
+  runNotMatching(`non-numeric`, fragments.yymmddRequired, `23a228`)
+  runNotMatching(`spaces filling the same space`, fragments.yymmddRequired, `      `)
+  runNotMatching(`too few spaces`, fragments.yymmddRequired, `     `)
+  runNotMatching(`too many spaces`, fragments.yymmddRequired, `       `)
 })
 
 describe(`yyyymmddOptional`, () => {
   runMatching(
-    `early before BST`, index.yyyymmddOptional, `20230103`,
+    `early before BST`, fragments.yyyymmddOptional, `20230103`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.yyyymmddOptional, `20230322`,
+    `late before BST`, fragments.yyyymmddOptional, `20230322`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.yyyymmddOptional, `20230328`,
+    `early BST`, fragments.yyyymmddOptional, `20230328`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.yyyymmddOptional, `20231025`,
+    `late BST`, fragments.yyyymmddOptional, `20231025`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.yyyymmddOptional, `20231030`,
+    `early after BST`, fragments.yyyymmddOptional, `20231030`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.yyyymmddOptional, `20231228`,
+    `late after BST`, fragments.yyyymmddOptional, `20231228`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.yyyymmddOptional, `2023122`)
-  runNotMatching(`extra leading digit`, index.yyyymmddOptional, `020231228`)
-  runNotMatching(`extra trailing digits`, index.yyyymmddOptional, `202312280`)
-  runNotMatching(`non-numeric`, index.yyyymmddOptional, `2023a228`)
-  runMatching(`spaces filling the same space`, index.yyyymmddOptional, `        `,
+  runNotMatching(`too few digits`, fragments.yyyymmddOptional, `2023122`)
+  runNotMatching(`extra leading digit`, fragments.yyyymmddOptional, `020231228`)
+  runNotMatching(`extra trailing digits`, fragments.yyyymmddOptional, `202312280`)
+  runNotMatching(`non-numeric`, fragments.yyyymmddOptional, `2023a228`)
+  runMatching(`spaces filling the same space`, fragments.yyyymmddOptional, `        `,
     parsed => expect(parsed).toBeNull()
   )
-  runNotMatching(`too few spaces`, index.yyyymmddOptional, `       `)
-  runNotMatching(`too many spaces`, index.yyyymmddOptional, `         `)
+  runNotMatching(`too few spaces`, fragments.yyyymmddOptional, `       `)
+  runNotMatching(`too many spaces`, fragments.yyyymmddOptional, `         `)
 })
 
 describe(`yyyymmddRequired`, () => {
   runMatching(
-    `early before BST`, index.yyyymmddRequired, `20230103`,
+    `early before BST`, fragments.yyyymmddRequired, `20230103`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-01-03T00:00:00+00:00`))
   )
   runMatching(
-    `late before BST`, index.yyyymmddRequired, `20230322`,
+    `late before BST`, fragments.yyyymmddRequired, `20230322`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-22T00:00:00+00:00`))
   )
   runMatching(
-    `early BST`, index.yyyymmddRequired, `20230328`,
+    `early BST`, fragments.yyyymmddRequired, `20230328`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-03-28T00:00:00+01:00`))
   )
   runMatching(
-    `late BST`, index.yyyymmddRequired, `20231025`,
+    `late BST`, fragments.yyyymmddRequired, `20231025`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-25T00:00:00+01:00`))
   )
   runMatching(
-    `early after BST`, index.yyyymmddRequired, `20231030`,
+    `early after BST`, fragments.yyyymmddRequired, `20231030`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-10-30T00:00:00+00:00`))
   )
   runMatching(
-    `late after BST`, index.yyyymmddRequired, `20231228`,
+    `late after BST`, fragments.yyyymmddRequired, `20231228`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.yyyymmddRequired, `2023122`)
-  runNotMatching(`extra leading digit`, index.yyyymmddRequired, `020231228`)
-  runNotMatching(`extra trailing digits`, index.yyyymmddRequired, `202312280`)
-  runNotMatching(`non-numeric`, index.yyyymmddRequired, `2023a228`)
-  runNotMatching(`spaces filling the same space`, index.yyyymmddRequired, `        `)
-  runNotMatching(`too few spaces`, index.yyyymmddRequired, `       `)
-  runNotMatching(`too many spaces`, index.yyyymmddRequired, `         `)
+  runNotMatching(`too few digits`, fragments.yyyymmddRequired, `2023122`)
+  runNotMatching(`extra leading digit`, fragments.yyyymmddRequired, `020231228`)
+  runNotMatching(`extra trailing digits`, fragments.yyyymmddRequired, `202312280`)
+  runNotMatching(`non-numeric`, fragments.yyyymmddRequired, `2023a228`)
+  runNotMatching(`spaces filling the same space`, fragments.yyyymmddRequired, `        `)
+  runNotMatching(`too few spaces`, fragments.yyyymmddRequired, `       `)
+  runNotMatching(`too many spaces`, fragments.yyyymmddRequired, `         `)
 })
 
 describe(`constantOptional`, () => {
   runMatching(
-    `exact`, index.constantOptional(`teST Co$()\\.*?[]+nstant`), `teST Co$()\\.*?[]+nstant`,
+    `exact`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`), `teST Co$()\\.*?[]+nstant`,
     parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
   )
   runMatching(
-    `spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `spaces`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `                       `,
     parsed => expect(parsed).toBeNull()
   )
   runNotMatching(
-    `too few spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `too few spaces`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `                      `
   )
   runNotMatching(
-    `too many spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `too many spaces`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `                        `
   )
   runNotMatching(
-    `leading space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `leading space`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     ` teST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `trailing space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `trailing space`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstant `
   )
   runNotMatching(
-    `leading character`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `leading character`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `FteST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `trailing character`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `trailing character`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstantF`
   )
   runNotMatching(
-    `leading space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `leading space`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     ` teST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `truncated start`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `truncated start`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `eST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `truncated end`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `truncated end`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstan`
   )
   runNotMatching(
-    `case mismatch`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `case mismatch`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nStant`
   )
 })
 
 describe(`constantRequired`, () => {
   runMatching(
-    `exact`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `exact`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstant`,
     parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
   )
   runNotMatching(
-    `spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `spaces`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `                       `
   )
   runNotMatching(
-    `too few spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `too few spaces`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `                      `
   )
   runNotMatching(
-    `too many spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `too many spaces`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `                        `
   )
   runNotMatching(
-    `leading space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `leading space`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     ` teST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `trailing space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `trailing space`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstant `
   )
   runNotMatching(
-    `leading character`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `leading character`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `FteST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `trailing character`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `trailing character`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstantF`
   )
   runNotMatching(
-    `leading space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `leading space`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     ` teST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `truncated start`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `truncated start`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `eST Co$()\\.*?[]+nstant`
   )
   runNotMatching(
-    `truncated end`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `truncated end`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nstan`
   )
   runNotMatching(
-    `case mismatch`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `case mismatch`, fragments.constantRequired(`teST Co$()\\.*?[]+nstant`),
     `teST Co$()\\.*?[]+nStant`
   )
 })
 
 describe(`stringOptional`, () => {
   runMatching(
-    `full length`, index.stringOptional(9), `World, Hi`,
+    `full length`, fragments.stringOptional(9), `World, Hi`,
     parsed => expect(parsed).toEqual(`World, Hi`)
   )
   runMatching(
-    `trailing spaces filling the same space`, index.stringOptional(9),
+    `trailing spaces filling the same space`, fragments.stringOptional(9),
     `Worl     `, parsed => expect(parsed).toEqual(`Worl`)
   )
   runMatching(
-    `spaces filling the same space`, index.stringOptional(9), `         `,
+    `spaces filling the same space`, fragments.stringOptional(9), `         `,
     parsed => expect(parsed).toBeNull()
   )
   runNotMatching(
-    `full length extra leading character`, index.stringOptional(9), `gWorld, Hi`
+    `full length extra leading character`, fragments.stringOptional(9), `gWorld, Hi`
   )
   runNotMatching(
-    `full length extra leading space`, index.stringOptional(9), ` World, Hi`
+    `full length extra leading space`, fragments.stringOptional(9), ` World, Hi`
   )
   runNotMatching(
-    `full length extra trailing character`, index.stringOptional(9),
+    `full length extra trailing character`, fragments.stringOptional(9),
     `World, Hig`
   )
   runNotMatching(
-    `full length extra trailing space`, index.stringOptional(9), `World, Hi `
+    `full length extra trailing space`, fragments.stringOptional(9), `World, Hi `
   )
   runNotMatching(
-    `trailing spaces extra leading character`, index.stringOptional(9),
+    `trailing spaces extra leading character`, fragments.stringOptional(9),
     `aWorl     `
   )
   runNotMatching(
-    `trailing spaces extra leading space`, index.stringOptional(9),
+    `trailing spaces extra leading space`, fragments.stringOptional(9),
     ` Worl     `
   )
   runNotMatching(
-    `trailing spaces extra trailing character`, index.stringOptional(9),
+    `trailing spaces extra trailing character`, fragments.stringOptional(9),
     `Worl     a`
   )
   runNotMatching(
-    `trailing spaces extra trailing space`, index.stringOptional(9),
+    `trailing spaces extra trailing space`, fragments.stringOptional(9),
     `Worl      `
   )
   runNotMatching(
-    `spaces extra leading character`, index.stringOptional(9), `a         `
+    `spaces extra leading character`, fragments.stringOptional(9), `a         `
   )
   runNotMatching(
-    `spaces extra trailing character`, index.stringOptional(9), `         a`
+    `spaces extra trailing character`, fragments.stringOptional(9), `         a`
   )
-  runNotMatching(`spaces extra space`, index.stringOptional(9), `          `)
+  runNotMatching(`spaces extra space`, fragments.stringOptional(9), `          `)
   runNotMatching(
-    `full length too short`, index.stringOptional(9), `World, H`
+    `full length too short`, fragments.stringOptional(9), `World, H`
   )
   runNotMatching(
-    `trailing spaces too short`, index.stringOptional(9),
+    `trailing spaces too short`, fragments.stringOptional(9),
     `Worl    `
   )
-  runNotMatching(`spaces too short`, index.stringOptional(9), `        `)
+  runNotMatching(`spaces too short`, fragments.stringOptional(9), `        `)
 })
 
 describe(`stringRequired`, () => {
   runMatching(
-    `full length`, index.stringRequired(9), `World, Hi`,
+    `full length`, fragments.stringRequired(9), `World, Hi`,
     parsed => expect(parsed).toEqual(`World, Hi`)
   )
   runMatching(
-    `trailing spaces filling the same space`, index.stringRequired(9),
+    `trailing spaces filling the same space`, fragments.stringRequired(9),
     `Worl     `, parsed => expect(parsed).toEqual(`Worl`)
   )
   runNotMatching(
-    `spaces filling the same space`, index.stringRequired(9), `         `
+    `spaces filling the same space`, fragments.stringRequired(9), `         `
   )
   runNotMatching(
-    `full length extra leading character`, index.stringRequired(9), `gWorld, Hi`
+    `full length extra leading character`, fragments.stringRequired(9), `gWorld, Hi`
   )
   runNotMatching(
-    `full length extra leading space`, index.stringRequired(9), ` World, Hi`
+    `full length extra leading space`, fragments.stringRequired(9), ` World, Hi`
   )
   runNotMatching(
-    `full length extra trailing character`, index.stringRequired(9),
+    `full length extra trailing character`, fragments.stringRequired(9),
     `World, Hig`
   )
   runNotMatching(
-    `full length extra trailing space`, index.stringRequired(9), `World, Hi `
+    `full length extra trailing space`, fragments.stringRequired(9), `World, Hi `
   )
   runNotMatching(
-    `trailing spaces extra leading character`, index.stringRequired(9),
+    `trailing spaces extra leading character`, fragments.stringRequired(9),
     `aWorl     `
   )
   runNotMatching(
-    `trailing spaces extra leading space`, index.stringRequired(9),
+    `trailing spaces extra leading space`, fragments.stringRequired(9),
     ` Worl     `
   )
   runNotMatching(
-    `trailing spaces extra trailing character`, index.stringRequired(9),
+    `trailing spaces extra trailing character`, fragments.stringRequired(9),
     `Worl     a`
   )
   runNotMatching(
-    `trailing spaces extra trailing space`, index.stringRequired(9),
+    `trailing spaces extra trailing space`, fragments.stringRequired(9),
     `Worl      `
   )
   runNotMatching(
-    `spaces extra leading character`, index.stringRequired(9), `a         `
+    `spaces extra leading character`, fragments.stringRequired(9), `a         `
   )
   runNotMatching(
-    `spaces extra trailing character`, index.stringRequired(9), `         a`
+    `spaces extra trailing character`, fragments.stringRequired(9), `         a`
   )
-  runNotMatching(`spaces extra space`, index.stringRequired(9), `          `)
+  runNotMatching(`spaces extra space`, fragments.stringRequired(9), `          `)
   runNotMatching(
-    `full length too short`, index.stringRequired(9), `World, H`
+    `full length too short`, fragments.stringRequired(9), `World, H`
   )
   runNotMatching(
-    `trailing spaces too short`, index.stringRequired(9),
+    `trailing spaces too short`, fragments.stringRequired(9),
     `Worl    `
   )
-  runNotMatching(`spaces too short`, index.stringRequired(9), `        `)
+  runNotMatching(`spaces too short`, fragments.stringRequired(9), `        `)
 })
 
 describe(`alphanumericOptional`, () => {
   runMatching(
-    `populated`, index.alphanumericOptional(5), `4DU8A`,
+    `populated`, fragments.alphanumericOptional(5), `4DU8A`,
     parsed => expect(parsed).toEqual(`4DU8A`)
   )
   runMatching(
-    `populated`, index.alphanumericOptional(5), `     `,
+    `populated`, fragments.alphanumericOptional(5), `     `,
     parsed => expect(parsed).toBeNull()
   )
-  runNotMatching(`lower case`, index.alphanumericOptional(5), `4dU8A`)
-  runNotMatching(`space`, index.alphanumericOptional(5), `4 U8A`)
-  runNotMatching(`symbol`, index.alphanumericOptional(5), `4$U8A`)
-  runNotMatching(`populated too short`, index.alphanumericOptional(5), `4DU8`)
-  runNotMatching(`populated too long`, index.alphanumericOptional(5), `4DU8A5`)
-  runNotMatching(`empty too short`, index.alphanumericOptional(5), `    `)
-  runNotMatching(`empty too long`, index.alphanumericOptional(5), `      `)
+  runNotMatching(`lower case`, fragments.alphanumericOptional(5), `4dU8A`)
+  runNotMatching(`space`, fragments.alphanumericOptional(5), `4 U8A`)
+  runNotMatching(`symbol`, fragments.alphanumericOptional(5), `4$U8A`)
+  runNotMatching(`populated too short`, fragments.alphanumericOptional(5), `4DU8`)
+  runNotMatching(`populated too long`, fragments.alphanumericOptional(5), `4DU8A5`)
+  runNotMatching(`empty too short`, fragments.alphanumericOptional(5), `    `)
+  runNotMatching(`empty too long`, fragments.alphanumericOptional(5), `      `)
 })
 
 describe(`alphanumericRequired`, () => {
   runMatching(
-    `populated`, index.alphanumericRequired(5), `4DU8A`,
+    `populated`, fragments.alphanumericRequired(5), `4DU8A`,
     parsed => expect(parsed).toEqual(`4DU8A`)
   )
-  runNotMatching(`empty`, index.alphanumericRequired(5), `     `)
-  runNotMatching(`lower case`, index.alphanumericRequired(5), `4dU8A`)
-  runNotMatching(`space`, index.alphanumericRequired(5), `4 U8A`)
-  runNotMatching(`symbol`, index.alphanumericRequired(5), `4$U8A`)
-  runNotMatching(`populated too short`, index.alphanumericRequired(5), `4DU8`)
-  runNotMatching(`populated too long`, index.alphanumericRequired(5), `4DU8A5`)
-  runNotMatching(`empty too short`, index.alphanumericRequired(5), `    `)
-  runNotMatching(`empty too long`, index.alphanumericRequired(5), `      `)
+  runNotMatching(`empty`, fragments.alphanumericRequired(5), `     `)
+  runNotMatching(`lower case`, fragments.alphanumericRequired(5), `4dU8A`)
+  runNotMatching(`space`, fragments.alphanumericRequired(5), `4 U8A`)
+  runNotMatching(`symbol`, fragments.alphanumericRequired(5), `4$U8A`)
+  runNotMatching(`populated too short`, fragments.alphanumericRequired(5), `4DU8`)
+  runNotMatching(`populated too long`, fragments.alphanumericRequired(5), `4DU8A5`)
+  runNotMatching(`empty too short`, fragments.alphanumericRequired(5), `    `)
+  runNotMatching(`empty too long`, fragments.alphanumericRequired(5), `      `)
 })
 
 describe(`unsignedOptional`, () => {
   runMatching(
-    `full length`, index.unsignedOptional(4), `7362`,
+    `full length`, fragments.unsignedOptional(4), `7362`,
     parsed => expect(parsed).toEqual(7362)
   )
   runMatching(
-    `partial length`, index.unsignedOptional(4), `73  `,
+    `partial length`, fragments.unsignedOptional(4), `73  `,
     parsed => expect(parsed).toEqual(73)
   )
   runMatching(
-    `spaces`, index.unsignedOptional(4), `    `,
+    `spaces`, fragments.unsignedOptional(4), `    `,
     parsed => expect(parsed).toBeNull()
   )
   runNotMatching(
-    `full length containing letter`, index.unsignedOptional(4), `7a62`
+    `full length containing letter`, fragments.unsignedOptional(4), `7a62`
   )
   runNotMatching(
-    `full length containing space`, index.unsignedOptional(4), `7 62`
+    `full length containing space`, fragments.unsignedOptional(4), `7 62`
   )
   runNotMatching(
-    `full length containing symbol`, index.unsignedOptional(4), `7$62`
+    `full length containing symbol`, fragments.unsignedOptional(4), `7$62`
   )
   runNotMatching(
-    `partial length containing letter`, index.unsignedOptional(4), `7a6 `
+    `partial length containing letter`, fragments.unsignedOptional(4), `7a6 `
   )
   runNotMatching(
-    `partial length containing space`, index.unsignedOptional(4), `7 6 `
+    `partial length containing space`, fragments.unsignedOptional(4), `7 6 `
   )
   runNotMatching(
-    `partial length containing symbol`, index.unsignedOptional(4), `7$6 `
+    `partial length containing symbol`, fragments.unsignedOptional(4), `7$6 `
   )
-  runNotMatching(`too few digits`, index.unsignedOptional(4), `736`)
-  runNotMatching(`too many digits`, index.unsignedOptional(4), `73628`)
-  runNotMatching(`too few spaces`, index.unsignedOptional(4), `   `)
-  runNotMatching(`too many spaces`, index.unsignedOptional(4), `     `)
-  runNotMatching(`too few partial`, index.unsignedOptional(4), `73 `)
-  runNotMatching(`too many partial`, index.unsignedOptional(4), `73   `)
+  runNotMatching(`too few digits`, fragments.unsignedOptional(4), `736`)
+  runNotMatching(`too many digits`, fragments.unsignedOptional(4), `73628`)
+  runNotMatching(`too few spaces`, fragments.unsignedOptional(4), `   `)
+  runNotMatching(`too many spaces`, fragments.unsignedOptional(4), `     `)
+  runNotMatching(`too few partial`, fragments.unsignedOptional(4), `73 `)
+  runNotMatching(`too many partial`, fragments.unsignedOptional(4), `73   `)
 })
 
 describe(`unsignedRequired`, () => {
   runMatching(
-    `full length`, index.unsignedRequired(4), `7362`,
+    `full length`, fragments.unsignedRequired(4), `7362`,
     parsed => expect(parsed).toEqual(7362)
   )
   runMatching(
-    `partial length`, index.unsignedRequired(4), `73  `,
+    `partial length`, fragments.unsignedRequired(4), `73  `,
     parsed => expect(parsed).toEqual(73)
   )
-  runNotMatching(`spaces`, index.unsignedRequired(4), `    `)
+  runNotMatching(`spaces`, fragments.unsignedRequired(4), `    `)
   runNotMatching(
-    `full length containing letter`, index.unsignedRequired(4), `7a62`
+    `full length containing letter`, fragments.unsignedRequired(4), `7a62`
   )
   runNotMatching(
-    `full length containing space`, index.unsignedRequired(4), `7 62`
+    `full length containing space`, fragments.unsignedRequired(4), `7 62`
   )
   runNotMatching(
-    `full length containing symbol`, index.unsignedRequired(4), `7$62`
+    `full length containing symbol`, fragments.unsignedRequired(4), `7$62`
   )
   runNotMatching(
-    `partial length containing letter`, index.unsignedRequired(4), `7a6 `
+    `partial length containing letter`, fragments.unsignedRequired(4), `7a6 `
   )
   runNotMatching(
-    `partial length containing space`, index.unsignedRequired(4), `7 6 `
+    `partial length containing space`, fragments.unsignedRequired(4), `7 6 `
   )
   runNotMatching(
-    `partial length containing symbol`, index.unsignedRequired(4), `7$6 `
+    `partial length containing symbol`, fragments.unsignedRequired(4), `7$6 `
   )
-  runNotMatching(`too few digits`, index.unsignedRequired(4), `736`)
-  runNotMatching(`too many digits`, index.unsignedRequired(4), `73628`)
-  runNotMatching(`too few spaces`, index.unsignedRequired(4), `   `)
-  runNotMatching(`too many spaces`, index.unsignedRequired(4), `     `)
-  runNotMatching(`too few partial`, index.unsignedRequired(4), `73 `)
-  runNotMatching(`too many partial`, index.unsignedRequired(4), `73   `)
+  runNotMatching(`too few digits`, fragments.unsignedRequired(4), `736`)
+  runNotMatching(`too many digits`, fragments.unsignedRequired(4), `73628`)
+  runNotMatching(`too few spaces`, fragments.unsignedRequired(4), `   `)
+  runNotMatching(`too many spaces`, fragments.unsignedRequired(4), `     `)
+  runNotMatching(`too few partial`, fragments.unsignedRequired(4), `73 `)
+  runNotMatching(`too many partial`, fragments.unsignedRequired(4), `73   `)
 })
