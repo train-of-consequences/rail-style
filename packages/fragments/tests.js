@@ -259,7 +259,7 @@ describe(`yyyymmddOptional`, () => {
     `late after BST`, index.yyyymmddOptional, `20231228`,
     parsed => expect(parsed).toBeSameMoment(moment(`2023-12-28T00:00:00+00:00`))
   )
-  runNotMatching(`too few digits`, index.yyyymmddOptional, `20231228`)
+  runNotMatching(`too few digits`, index.yyyymmddOptional, `2023122`)
   runNotMatching(`extra leading digit`, index.yyyymmddOptional, `020231228`)
   runNotMatching(`extra trailing digits`, index.yyyymmddOptional, `202312280`)
   runNotMatching(`non-numeric`, index.yyyymmddOptional, `2023a228`)
