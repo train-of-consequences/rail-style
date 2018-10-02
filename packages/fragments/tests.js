@@ -16,7 +16,7 @@ const runMatching = (description, fragment, text, verifyParsed) => describe(desc
   it(`returns the expected value`, () => verifyParsed(parsed))
 })
 
-const runNotMatching = (description, fragment, name, text) => describe(description, () => {
+const runNotMatching = (description, fragment, text) => describe(description, () => {
   let matched
   beforeEach(() => {
     matched = new RegExp(`^PRECEDING123!(${fragment.regex})!TRAILING456$`).exec(`PRECEDING123!${text}!TRAILING456`)
