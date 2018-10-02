@@ -1,5 +1,6 @@
 import * as path from "path"
 import * as fs from "fs"
+import * as childProcess from "child_process"
 
 let version
 
@@ -50,6 +51,11 @@ fs.readdir(path.join(`..`, `packages`), (error, files) => {
         if (error) {
           throw error
         }
+        childProcess.exec(`cd ${path.join(`..`, `packages`, file)} && npm install`, (error, stdout, stderr) => {
+          if (error) {
+            throw `${error} - ${stderr}`
+          }
+        })
       })
     })
   }))
