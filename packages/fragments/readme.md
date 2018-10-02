@@ -4,6 +4,9 @@ Fragments which can be used to describe a fixed-width format.
 
 | Export                  | Example    | Type                 | Value                     |
 |-------------------------|------------|----------------------|---------------------------|
+| constantOptional("abc") | `abc`      | String               | `abc`                     |
+| constantOptional("abc") | `   `      | null                 | null                      |
+| constantRequired("abc") | `abc`      | String               | `abc`                     |
 | stringOptional(4)       | `abcd`     | String               | `abcd`                    |
 | stringOptional(4)       | `ab  `     | String               | `ab`                      |
 | stringOptional(4)       | `    `     | null                 | null                      |

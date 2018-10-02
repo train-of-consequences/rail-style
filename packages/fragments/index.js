@@ -1,3 +1,4 @@
+import escapeStringRegexp from "escape-string-regexp"
 import { tz as momentTz } from "moment-timezone"
 
 export const ddmmyyOptional = {
@@ -47,6 +48,16 @@ export const yyyymmddRequired = {
   regex: `[0-9]{8}`,
   parse: text => momentTz(text, `YYYYMMDD`, `Europe/London`)
 }
+
+export const constantOptional = constant => ({
+  regex: `${escapeStringRegexp(constant)}|\\s{${constant.length}}`,
+  parse: text => text.trim() || null
+})
+
+export const constantRequired = constant => ({
+  regex: escapeStringRegexp(constant),
+  parse: text => text
+})
 
 export const stringOptional = length => ({
   regex: `.{${length}}`,

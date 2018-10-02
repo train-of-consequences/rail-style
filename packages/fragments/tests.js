@@ -304,6 +304,110 @@ describe(`yyyymmddRequired`, () => {
   runNotMatching(`too many spaces`, index.yyyymmddRequired, `         `)
 })
 
+describe(`constantOptional`, () => {
+  runMatching(
+    `exact`, index.constantOptional(`teST Co$()\\.*?[]+nstant`), `teST Co$()\\.*?[]+nstant`,
+    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+  )
+  runMatching(
+    `spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `                       `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(
+    `too few spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `                      `
+  )
+  runNotMatching(
+    `too many spaces`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `                        `
+  )
+  runNotMatching(
+    `leading space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    ` teST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `trailing space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstant `
+  )
+  runNotMatching(
+    `leading character`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `FteST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `trailing character`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstantF`
+  )
+  runNotMatching(
+    `leading space`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    ` teST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `truncated start`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `eST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `truncated end`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstan`
+  )
+  runNotMatching(
+    `case mismatch`, index.constantOptional(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nStant`
+  )
+})
+
+describe(`constantRequired`, () => {
+  runMatching(
+    `exact`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstant`,
+    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+  )
+  runNotMatching(
+    `spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `                       `
+  )
+  runNotMatching(
+    `too few spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `                      `
+  )
+  runNotMatching(
+    `too many spaces`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `                        `
+  )
+  runNotMatching(
+    `leading space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    ` teST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `trailing space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstant `
+  )
+  runNotMatching(
+    `leading character`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `FteST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `trailing character`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstantF`
+  )
+  runNotMatching(
+    `leading space`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    ` teST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `truncated start`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `eST Co$()\\.*?[]+nstant`
+  )
+  runNotMatching(
+    `truncated end`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nstan`
+  )
+  runNotMatching(
+    `case mismatch`, index.constantRequired(`teST Co$()\\.*?[]+nstant`),
+    `teST Co$()\\.*?[]+nStant`
+  )
+})
+
 describe(`stringOptional`, () => {
   runMatching(
     `full length`, index.stringOptional(9), `World, Hi`,
