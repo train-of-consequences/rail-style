@@ -420,3 +420,36 @@ describe(`stringRequired`, () => {
   )
   runNotMatching(`spaces too short`, index.stringRequired(9), `        `)
 })
+
+describe(`alphanumericOptional`, () => {
+  runMatching(
+    `populated`, index.alphanumericOptional(5), `4DU8A`,
+    parsed => expect(parsed).toEqual(`4DU8A`)
+  )
+  runMatching(
+    `populated`, index.alphanumericOptional(5), `     `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(`lower case`, index.alphanumericOptional(5), `4dU8A`)
+  runNotMatching(`space`, index.alphanumericOptional(5), `4 U8A`)
+  runNotMatching(`symbol`, index.alphanumericOptional(5), `4$U8A`)
+  runNotMatching(`populated too short`, index.alphanumericOptional(5), `4DU8`)
+  runNotMatching(`populated too long`, index.alphanumericOptional(5), `4DU8A5`)
+  runNotMatching(`empty too short`, index.alphanumericOptional(5), `    `)
+  runNotMatching(`empty too long`, index.alphanumericOptional(5), `      `)
+})
+
+describe(`alphanumericRequired`, () => {
+  runMatching(
+    `populated`, index.alphanumericRequired(5), `4DU8A`,
+    parsed => expect(parsed).toEqual(`4DU8A`)
+  )
+  runNotMatching(`empty`, index.alphanumericRequired(5), `     `)
+  runNotMatching(`lower case`, index.alphanumericRequired(5), `4dU8A`)
+  runNotMatching(`space`, index.alphanumericRequired(5), `4 U8A`)
+  runNotMatching(`symbol`, index.alphanumericRequired(5), `4$U8A`)
+  runNotMatching(`populated too short`, index.alphanumericRequired(5), `4DU8`)
+  runNotMatching(`populated too long`, index.alphanumericRequired(5), `4DU8A5`)
+  runNotMatching(`empty too short`, index.alphanumericRequired(5), `    `)
+  runNotMatching(`empty too long`, index.alphanumericRequired(5), `      `)
+})

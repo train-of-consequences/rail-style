@@ -57,3 +57,15 @@ export const stringRequired = length => ({
   regex: `\\S.{${length - 1}}`,
   parse: text => text.trim()
 })
+
+export const alphanumericOptional = length => ({
+  regex: `[A-Z0-9]{${length}}|\\s{${length}}`,
+  parse: text => text.trim()
+    ? text
+    : null
+})
+
+export const alphanumericRequired = length => ({
+  regex: `[A-Z0-9]{${length}}`,
+  parse: text => text
+})
