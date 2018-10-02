@@ -69,3 +69,28 @@ export const alphanumericRequired = length => ({
   regex: `[A-Z0-9]{${length}}`,
   parse: text => text
 })
+
+export const unsignedOptional = length => {
+  let regex = `\\d{${length}}`
+  for (let i = 1; i < length; i++) {
+    regex += `|\\d{${i}}\\s{${length - i}}`
+  }
+  regex += `|\\s{${length}}`
+  return {
+    regex,
+    parse: text => text.trim()
+      ? parseInt(text)
+      : null
+  }
+}
+
+export const unsignedRequired = length => {
+  let regex = `\\d{${length}}`
+  for (let i = 1; i < length; i++) {
+    regex += `|\\d{${i}}\\s{${length - i}}`
+  }
+  return {
+    regex,
+    parse: parseInt
+  }
+}

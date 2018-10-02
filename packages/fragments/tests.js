@@ -453,3 +453,78 @@ describe(`alphanumericRequired`, () => {
   runNotMatching(`empty too short`, index.alphanumericRequired(5), `    `)
   runNotMatching(`empty too long`, index.alphanumericRequired(5), `      `)
 })
+
+describe(`unsignedOptional`, () => {
+  runMatching(
+    `full length`, index.unsignedOptional(4), `7362`,
+    parsed => expect(parsed).toEqual(7362)
+  )
+  runMatching(
+    `partial length`, index.unsignedOptional(4), `73  `,
+    parsed => expect(parsed).toEqual(73)
+  )
+  runMatching(
+    `spaces`, index.unsignedOptional(4), `    `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(
+    `full length containing letter`, index.unsignedOptional(4), `7a62`
+  )
+  runNotMatching(
+    `full length containing space`, index.unsignedOptional(4), `7 62`
+  )
+  runNotMatching(
+    `full length containing symbol`, index.unsignedOptional(4), `7$62`
+  )
+  runNotMatching(
+    `partial length containing letter`, index.unsignedOptional(4), `7a6 `
+  )
+  runNotMatching(
+    `partial length containing space`, index.unsignedOptional(4), `7 6 `
+  )
+  runNotMatching(
+    `partial length containing symbol`, index.unsignedOptional(4), `7$6 `
+  )
+  runNotMatching(`too few digits`, index.unsignedOptional(4), `736`)
+  runNotMatching(`too many digits`, index.unsignedOptional(4), `73628`)
+  runNotMatching(`too few spaces`, index.unsignedOptional(4), `   `)
+  runNotMatching(`too many spaces`, index.unsignedOptional(4), `     `)
+  runNotMatching(`too few partial`, index.unsignedOptional(4), `73 `)
+  runNotMatching(`too many partial`, index.unsignedOptional(4), `73   `)
+})
+
+describe(`unsignedRequired`, () => {
+  runMatching(
+    `full length`, index.unsignedRequired(4), `7362`,
+    parsed => expect(parsed).toEqual(7362)
+  )
+  runMatching(
+    `partial length`, index.unsignedRequired(4), `73  `,
+    parsed => expect(parsed).toEqual(73)
+  )
+  runNotMatching(`spaces`, index.unsignedRequired(4), `    `)
+  runNotMatching(
+    `full length containing letter`, index.unsignedRequired(4), `7a62`
+  )
+  runNotMatching(
+    `full length containing space`, index.unsignedRequired(4), `7 62`
+  )
+  runNotMatching(
+    `full length containing symbol`, index.unsignedRequired(4), `7$62`
+  )
+  runNotMatching(
+    `partial length containing letter`, index.unsignedRequired(4), `7a6 `
+  )
+  runNotMatching(
+    `partial length containing space`, index.unsignedRequired(4), `7 6 `
+  )
+  runNotMatching(
+    `partial length containing symbol`, index.unsignedRequired(4), `7$6 `
+  )
+  runNotMatching(`too few digits`, index.unsignedRequired(4), `736`)
+  runNotMatching(`too many digits`, index.unsignedRequired(4), `73628`)
+  runNotMatching(`too few spaces`, index.unsignedRequired(4), `   `)
+  runNotMatching(`too many spaces`, index.unsignedRequired(4), `     `)
+  runNotMatching(`too few partial`, index.unsignedRequired(4), `73 `)
+  runNotMatching(`too many partial`, index.unsignedRequired(4), `73   `)
+})
