@@ -17,6 +17,7 @@ jobs:
       script: echo $NPM_TOKEN > ~/.npmrc && npm publish packages/fragments
       skip_cleanup: true
       on:
+        tags: true
         branch: master
         repo: train-of-consequences/rail-style
   - stage: "@rail-style/parser"
@@ -33,6 +34,7 @@ jobs:
       script: echo $NPM_TOKEN > ~/.npmrc && npm publish packages/parser
       skip_cleanup: true
       on:
+        tags: true
         branch: master
         repo: train-of-consequences/rail-style
 env:
