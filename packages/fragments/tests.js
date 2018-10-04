@@ -408,6 +408,57 @@ describe(`constantRequired`, () => {
   )
 })
 
+describe(`enumOptional`, () => {
+  const fragment = fragments.enumOptional(
+    `Another  Test  Constant`,
+    `teST Co$()\\.*?[]+nstant`,
+    `Yet Another Test Consta`,
+    `Final   Test   Constant`
+  )
+  runMatching(
+    `exact`, fragment, `teST Co$()\\.*?[]+nstant`,
+    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+  )
+  runMatching(
+    `spaces`, fragment, `                       `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(`too few spaces`, fragment, `                      `)
+  runNotMatching(`too many spaces`, fragment, `                        `)
+  runNotMatching(`leading space`, fragment, ` teST Co$()\\.*?[]+nstant`)
+  runNotMatching(`trailing space`, fragment, `teST Co$()\\.*?[]+nstant `)
+  runNotMatching(`leading character`, fragment, `FteST Co$()\\.*?[]+nstant`)
+  runNotMatching(`trailing character`, fragment, `teST Co$()\\.*?[]+nstantF`)
+  runNotMatching(`leading space`, fragment, ` teST Co$()\\.*?[]+nstant`)
+  runNotMatching(`truncated start`, fragment, `eST Co$()\\.*?[]+nstant`)
+  runNotMatching(`truncated end`, fragment, `teST Co$()\\.*?[]+nstan`)
+  runNotMatching(`case mismatch`, fragment, `teST Co$()\\.*?[]+nStant`)
+})
+
+describe(`enumRequired`, () => {
+  const fragment = fragments.enumRequired(
+    `Another  Test  Constant`,
+    `teST Co$()\\.*?[]+nstant`,
+    `Yet Another Test Consta`,
+    `Final   Test   Constant`
+  )
+  runMatching(
+    `exact`, fragment, `teST Co$()\\.*?[]+nstant`,
+    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+  )
+  runNotMatching(`spaces`, fragment, `                       `)
+  runNotMatching(`too few spaces`, fragment, `                      `)
+  runNotMatching(`too many spaces`, fragment, `                        `)
+  runNotMatching(`leading space`, fragment, ` teST Co$()\\.*?[]+nstant`)
+  runNotMatching(`trailing space`, fragment, `teST Co$()\\.*?[]+nstant `)
+  runNotMatching(`leading character`, fragment, `FteST Co$()\\.*?[]+nstant`)
+  runNotMatching(`trailing character`, fragment, `teST Co$()\\.*?[]+nstantF`)
+  runNotMatching(`leading space`, fragment, ` teST Co$()\\.*?[]+nstant`)
+  runNotMatching(`truncated start`, fragment, `eST Co$()\\.*?[]+nstant`)
+  runNotMatching(`truncated end`, fragment, `teST Co$()\\.*?[]+nstan`)
+  runNotMatching(`case mismatch`, fragment, `teST Co$()\\.*?[]+nStant`)
+})
+
 describe(`stringOptional`, () => {
   runMatching(
     `full length`, fragments.stringOptional(9), `World, Hi`,

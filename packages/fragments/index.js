@@ -59,6 +59,21 @@ export const constantRequired = constant => ({
   parse: text => text
 })
 
+export const enumOptional = (...values) => ({
+  regex: values
+    .map(escapeStringRegexp)
+    .concat(`\\s{${values[0].length}}`)
+    .join(`|`),
+  parse: text => text.trim() || null
+})
+
+export const enumRequired = (...values) => ({
+  regex: values
+    .map(escapeStringRegexp)
+    .join(`|`),
+  parse: text => text
+})
+
 export const stringOptional = length => ({
   regex: `.{${length}}`,
   parse: text => text.trim() || null
