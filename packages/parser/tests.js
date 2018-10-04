@@ -85,9 +85,9 @@ runUnknown(
 
 describe(`when a line which matches is given`, () => {
   beforeEach(() => instance(`HANDLED3928467319`))
-  it(`does not handles the line once`, () => expect(handledCallback).toHaveBeenCalledTimes(1))
+  it(`handles the line once`, () => expect(handledCallback).toHaveBeenCalledTimes(1))
   it(`handles the line with the context`, () => expect(handledCallback).toHaveBeenCalledWith(`Test Context`, jasmine.anything(), jasmine.anything()))
-  it(`does not handles the line with the fragments`, () => expect(handledCallback).toHaveBeenCalledWith(jasmine.anything(), `73`, `28`))
+  it(`handles the line with the fragments`, () => expect(handledCallback).toHaveBeenCalledWith(jasmine.anything(), `73`, `28`))
   it(`does not report the line as unknown`, () => expect(onUnknown).not.toHaveBeenCalled())
 })
 
