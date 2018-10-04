@@ -49,6 +49,54 @@ export const yyyymmddRequired = {
   parse: text => momentTz(text, `YYYYMMDD`, `Europe/London`)
 }
 
+export const ddmmyyhhmmOptional = {
+  regex: `[0-9]{10}|\\s{10}`,
+  parse: text => text != `          `
+    ? momentTz(text, `DDMMYYhhmm`, `Europe/London`)
+    : null
+}
+
+export const ddmmyyhhmmRequired = {
+  regex: `[0-9]{10}`,
+  parse: text => momentTz(text, `DDMMYYhhmm`, `Europe/London`)
+}
+
+export const ddmmyyyyhhmmOptional = {
+  regex: `[0-9]{12}|\\s{12}`,
+  parse: text => text != `            `
+    ? momentTz(text, `DDMMYYYYhhmm`, `Europe/London`)
+    : null
+}
+
+export const ddmmyyyyhhmmRequired = {
+  regex: `[0-9]{12}`,
+  parse: text => momentTz(text, `DDMMYYYYhhmm`, `Europe/London`)
+}
+
+export const yymmddhhmmOptional = {
+  regex: `[0-9]{10}|\\s{10}`,
+  parse: text => text != `          `
+    ? momentTz(text, `YYMMDDhhmm`, `Europe/London`)
+    : null
+}
+
+export const yymmddhhmmRequired = {
+  regex: `[0-9]{10}`,
+  parse: text => momentTz(text, `YYMMDDhhmm`, `Europe/London`)
+}
+
+export const yyyymmddhhmmOptional = {
+  regex: `[0-9]{12}|\\s{12}`,
+  parse: text => text != `            `
+    ? momentTz(text, `YYYYMMDDhhmm`, `Europe/London`)
+    : null
+}
+
+export const yyyymmddhhmmRequired = {
+  regex: `[0-9]{12}`,
+  parse: text => momentTz(text, `YYYYMMDDhhmm`, `Europe/London`)
+}
+
 export const constantOptional = constant => ({
   regex: `${escapeStringRegexp(constant)}|\\s{${constant.length}}`,
   parse: text => text.trim() || null
