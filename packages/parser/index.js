@@ -12,7 +12,7 @@ export default (schema, context, handlers, onUnknown) => {
       if (Object.keys(handlers).includes(schemaKey)) {
         const handler = handlers[schemaKey]
         let pattern = `^`
-        const remapping = []
+        const remapping = [() => context]
         let matches = 1
         schemaFragments.forEach(fragment => {
           const key = Object.keys(fragment)[0]
@@ -22,7 +22,9 @@ export default (schema, context, handlers, onUnknown) => {
             pattern += `(?:${value.regex})`
           } else {
             pattern += `(${value.regex})`
-            remapping[index] = matches
+            const matchesCopy = matches
+            const parse = value.parse
+            remapping[index + 1] = match => parse(match[matchesCopy])
             matches++
           }
         })
@@ -32,7 +34,7 @@ export default (schema, context, handlers, onUnknown) => {
         output = line => {
           const match = regex.exec(line)
           if (match) {
-            callback.apply(null, [context].concat(remapping.map(index => match[index])))
+            callback.apply(null, remapping.map(mapper => mapper(match)))
           } else {
             previousOutput(line)
           }
