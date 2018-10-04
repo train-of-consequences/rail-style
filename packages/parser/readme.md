@@ -38,18 +38,19 @@ const schema = {
 const handlers = {
   stringLine: {
     fragments: [`string`],
-    callback: string => console.log(`Found string: ${string}`)
+    callback: (context, string) => console.log(`Found string with context ${context}: ${string}`)
   },
   complexLine: {
     fragments: [`usedA`, `usedB`],
-    callback: (usedA, usedB) => console.log(`Found complex: ${usedA} ${usedB}`)
+    callback: (context, usedA, usedB) => console.log(`Found complex with context ${context}: ${usedA} ${usedB}`)
   }
 }
 
 const instance = parser(
   schema,
+  `Example Context`,
   handlers,
-  line => console.log(`Found unknown: ${line}`)
+  (context, line) => console.log(`Found unknown with context ${context}: ${line}`)
 )
 
 instance(`STRING: Hello, world`)
@@ -63,8 +64,8 @@ instance(`IGNORED B W/ PADDING`)
 ```
 
 ```
-Found string: Hello, world
-Found unknown: UNKNOWN A
-Found complex: 456 01
-Found unknown: UNKNOWN B
+Found string with context Example Context: Hello, world
+Found unknown with context Example Context: UNKNOWN A
+Found complex with context Example Context: 456 01
+Found unknown with context Example Context: UNKNOWN B
 ```

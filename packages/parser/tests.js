@@ -26,7 +26,7 @@ const instance = parser({
     { d: fragments.unsignedRequired(2) },
     { e: fragments.unsignedRequired(2) }
   ]
-}, {
+}, `Test Context`, {
     handled: {
       fragments: [`d`, `b`],
       callback: handledCallback
@@ -43,7 +43,8 @@ const runUnknown = (description, input) => describe(description, () => {
   beforeEach(() => instance(input))
   it(`does not handle the line`, () => expect(handledCallback).not.toHaveBeenCalled())
   it(`reports the line as unknown once`, () => expect(onUnknown).toHaveBeenCalledTimes(1))
-  it(`reports the line as unknown`, () => expect(onUnknown).toHaveBeenCalledWith(input))
+  it(`reports the line as unknown using the context`, () => expect(onUnknown).toHaveBeenCalledWith(`Test Context`, jasmine.anything()))
+  it(`reports the line as unknown`, () => expect(onUnknown).toHaveBeenCalledWith(jasmine.anything(), input))
 })
 
 runDoesNothing(`when an empty line is given`, ``)
@@ -85,7 +86,8 @@ runUnknown(
 describe(`when a line which matches is given`, () => {
   beforeEach(() => instance(`HANDLED3928467319`))
   it(`does not handles the line once`, () => expect(handledCallback).toHaveBeenCalledTimes(1))
-  it(`does not handles the line with the fragments`, () => expect(handledCallback).toHaveBeenCalledWith(`73`, `28`))
+  it(`handles the line with the context`, () => expect(handledCallback).toHaveBeenCalledWith(`Test Context`, jasmine.anything(), jasmine.anything()))
+  it(`does not handles the line with the fragments`, () => expect(handledCallback).toHaveBeenCalledWith(jasmine.anything(), `73`, `28`))
   it(`does not report the line as unknown`, () => expect(onUnknown).not.toHaveBeenCalled())
 })
 

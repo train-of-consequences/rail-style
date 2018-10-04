@@ -1,7 +1,7 @@
-export default (schema, handlers, onUnknown) => {
+export default (schema, context, handlers, onUnknown) => {
   let output = line => {
     if (line.trim()) {
-      onUnknown(line)
+      onUnknown(context, line)
     }
   }
   Object
@@ -32,7 +32,7 @@ export default (schema, handlers, onUnknown) => {
         output = line => {
           const match = regex.exec(line)
           if (match) {
-            callback.apply(null, remapping.map(index => match[index]))
+            callback.apply(null, [context].concat(remapping.map(index => match[index])))
           } else {
             previousOutput(line)
           }
