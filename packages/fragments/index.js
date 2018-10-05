@@ -97,6 +97,20 @@ export const yyyymmddhhmmRequired = {
   parse: text => momentTz(text, `YYYYMMDDhhmm`, `Europe/London`)
 }
 
+const convertHhmm = text => momentTz(`00010101${text}`, `YYYYMMDDhhmm`, `Europe/London`)
+
+export const hhmmOptional = {
+  regex: `[0-9]{4}|\\s{4}`,
+  parse: text => text != `    `
+    ? convertHhmm(text)
+    : null
+}
+
+export const hhmmRequired = {
+  regex: `[0-9]{4}`,
+  parse: convertHhmm
+}
+
 export const constantOptional = constant => ({
   regex: `${escapeStringRegexp(constant)}|\\s{${constant.length}}`,
   parse: text => text.trim() || null

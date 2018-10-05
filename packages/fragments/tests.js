@@ -584,6 +584,36 @@ describe(`yyyymmddhhmmRequired`, () => {
   runNotMatching(`too many spaces`, fragments.yyyymmddhhmmRequired, `             `)
 })
 
+describe(`hhmmOptional`, () => {
+  runMatching(
+    `valid`, fragments.hhmmOptional, `1627`,
+    parsed => expect(parsed).toBeSameMoment(moment(`0001-01-01T16:27:00+00:00`))
+  )
+  runNotMatching(`too few digits`, fragments.hhmmOptional, `162`)
+  runNotMatching(`extra leading digit`, fragments.hhmmOptional, `01627`)
+  runNotMatching(`extra trailing digits`, fragments.hhmmOptional, `16270`)
+  runNotMatching(`non-numeric`, fragments.hhmmOptional, `1a27`)
+  runMatching(`spaces filling the same space`, fragments.hhmmOptional, `    `,
+    parsed => expect(parsed).toBeNull()
+  )
+  runNotMatching(`too few spaces`, fragments.hhmmOptional, `   `)
+  runNotMatching(`too many spaces`, fragments.hhmmOptional, `     `)
+})
+
+describe(`hhmmRequired`, () => {
+  runMatching(
+    `valid`, fragments.hhmmRequired, `1627`,
+    parsed => expect(parsed).toBeSameMoment(moment(`0001-01-01T16:27:00+00:00`))
+  )
+  runNotMatching(`too few digits`, fragments.hhmmRequired, `162`)
+  runNotMatching(`extra leading digit`, fragments.hhmmRequired, `01627`)
+  runNotMatching(`extra trailing digits`, fragments.hhmmRequired, `16270`)
+  runNotMatching(`non-numeric`, fragments.hhmmRequired, `1a27`)
+  runNotMatching(`spaces filling the same space`, fragments.hhmmRequired, `    `)
+  runNotMatching(`too few spaces`, fragments.hhmmRequired, `   `)
+  runNotMatching(`too many spaces`, fragments.hhmmRequired, `     `)
+})
+
 describe(`constantOptional`, () => {
   runMatching(
     `exact`, fragments.constantOptional(`teST Co$()\\.*?[]+nstant`), `teST Co$()\\.*?[]+nstant`,
