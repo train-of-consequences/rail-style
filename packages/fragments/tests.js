@@ -925,7 +925,11 @@ describe(`unsignedOptional`, () => {
     parsed => expect(parsed).toEqual(7362)
   )
   runMatching(
-    `partial length`, fragments.unsignedOptional(4), `73  `,
+    `partial length left`, fragments.unsignedOptional(4), `73  `,
+    parsed => expect(parsed).toEqual(73)
+  )
+  runMatching(
+    `partial length right`, fragments.unsignedOptional(4), `  73`,
     parsed => expect(parsed).toEqual(73)
   )
   runMatching(
@@ -942,20 +946,31 @@ describe(`unsignedOptional`, () => {
     `full length containing symbol`, fragments.unsignedOptional(4), `7$62`
   )
   runNotMatching(
-    `partial length containing letter`, fragments.unsignedOptional(4), `7a6 `
+    `partial length left containing letter`, fragments.unsignedOptional(4), `7a6 `
   )
   runNotMatching(
-    `partial length containing space`, fragments.unsignedOptional(4), `7 6 `
+    `partial length left containing space`, fragments.unsignedOptional(4), `7 6 `
   )
   runNotMatching(
-    `partial length containing symbol`, fragments.unsignedOptional(4), `7$6 `
+    `partial length left containing symbol`, fragments.unsignedOptional(4), `7$6 `
+  )
+  runNotMatching(
+    `partial length right containing letter`, fragments.unsignedOptional(4), ` 7a6`
+  )
+  runNotMatching(
+    `partial length right containing space`, fragments.unsignedOptional(4), ` 7 6`
+  )
+  runNotMatching(
+    `partial length right containing symbol`, fragments.unsignedOptional(4), ` 7$6`
   )
   runNotMatching(`too few digits`, fragments.unsignedOptional(4), `736`)
   runNotMatching(`too many digits`, fragments.unsignedOptional(4), `73628`)
   runNotMatching(`too few spaces`, fragments.unsignedOptional(4), `   `)
   runNotMatching(`too many spaces`, fragments.unsignedOptional(4), `     `)
-  runNotMatching(`too few partial`, fragments.unsignedOptional(4), `73 `)
-  runNotMatching(`too many partial`, fragments.unsignedOptional(4), `73   `)
+  runNotMatching(`too few partial left`, fragments.unsignedOptional(4), `73 `)
+  runNotMatching(`too few partial right`, fragments.unsignedOptional(4), ` 73`)
+  runNotMatching(`too many partial left`, fragments.unsignedOptional(4), `73   `)
+  runNotMatching(`too many partial right`, fragments.unsignedOptional(4), `   73`)
 })
 
 describe(`unsignedRequired`, () => {
@@ -964,7 +979,11 @@ describe(`unsignedRequired`, () => {
     parsed => expect(parsed).toEqual(7362)
   )
   runMatching(
-    `partial length`, fragments.unsignedRequired(4), `73  `,
+    `partial length left`, fragments.unsignedRequired(4), `73  `,
+    parsed => expect(parsed).toEqual(73)
+  )
+  runMatching(
+    `partial length right`, fragments.unsignedRequired(4), `  73`,
     parsed => expect(parsed).toEqual(73)
   )
   runNotMatching(`spaces`, fragments.unsignedRequired(4), `    `)
@@ -978,18 +997,29 @@ describe(`unsignedRequired`, () => {
     `full length containing symbol`, fragments.unsignedRequired(4), `7$62`
   )
   runNotMatching(
-    `partial length containing letter`, fragments.unsignedRequired(4), `7a6 `
+    `partial length left containing letter`, fragments.unsignedRequired(4), `7a6 `
   )
   runNotMatching(
-    `partial length containing space`, fragments.unsignedRequired(4), `7 6 `
+    `partial length left containing space`, fragments.unsignedRequired(4), `7 6 `
   )
   runNotMatching(
-    `partial length containing symbol`, fragments.unsignedRequired(4), `7$6 `
+    `partial length left containing symbol`, fragments.unsignedRequired(4), `7$6 `
+  )
+  runNotMatching(
+    `partial length right containing letter`, fragments.unsignedRequired(4), ` 7a6`
+  )
+  runNotMatching(
+    `partial length right containing space`, fragments.unsignedRequired(4), ` 7 6`
+  )
+  runNotMatching(
+    `partial length right containing symbol`, fragments.unsignedRequired(4), ` 7$6`
   )
   runNotMatching(`too few digits`, fragments.unsignedRequired(4), `736`)
   runNotMatching(`too many digits`, fragments.unsignedRequired(4), `73628`)
   runNotMatching(`too few spaces`, fragments.unsignedRequired(4), `   `)
   runNotMatching(`too many spaces`, fragments.unsignedRequired(4), `     `)
-  runNotMatching(`too few partial`, fragments.unsignedRequired(4), `73 `)
-  runNotMatching(`too many partial`, fragments.unsignedRequired(4), `73   `)
+  runNotMatching(`too few partial left`, fragments.unsignedRequired(4), `73 `)
+  runNotMatching(`too few partial right`, fragments.unsignedRequired(4), ` 73`)
+  runNotMatching(`too many partial left`, fragments.unsignedRequired(4), `73   `)
+  runNotMatching(`too many partial right`, fragments.unsignedRequired(4), `   73`)
 })

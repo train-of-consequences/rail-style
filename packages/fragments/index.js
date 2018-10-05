@@ -162,6 +162,7 @@ export const unsignedOptional = length => {
   let regex = `\\d{${length}}`
   for (let i = 1; i < length; i++) {
     regex += `|\\d{${i}}\\s{${length - i}}`
+    regex += `|\\s{${length - i}}\\d{${i}}`
   }
   regex += `|\\s{${length}}`
   return {
@@ -176,6 +177,7 @@ export const unsignedRequired = length => {
   let regex = `\\d{${length}}`
   for (let i = 1; i < length; i++) {
     regex += `|\\d{${i}}\\s{${length - i}}`
+    regex += `|\\s{${length - i}}\\d{${i}}`
   }
   return {
     regex,
