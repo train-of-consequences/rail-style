@@ -72,12 +72,6 @@ run(
 )
 
 run(
-  `headerRecord`, `updateIndicator`,
-  `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
-  updateIndicator => expect(updateIndicator).toEqual(`full`)
-)
-
-run(
   `headerRecord`, `version`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
   version => expect(version).toEqual(`O`)
