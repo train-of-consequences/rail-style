@@ -1,0 +1,44 @@
+{
+  "name": "@rail-style/mca",
+  "description": "A schema for RSPS5046 timetable data (*.mca).",
+  "version": "0.0.7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/train-of-consequences/rail-style"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.min.js"
+  ],
+  "main": "index.min.js",
+  "scripts": {
+    "babel": "babel index.js --out-file index.babel.js",
+    "babelCoverage": "cross-env NODE_ENV=test babel index.js --out-file index.coverage.js",
+    "babelTests": "babel tests.js --out-file tests.babel.js",
+    "jasmine": "nyc --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 --include index.js jasmine JASMINE_CONFIG_PATH=jasmine.json",
+    "uglify-js": "uglifyjs index.babel.js --compress --mangle --toplevel --output index.min.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "@rail-style/parser": "0.0.7",
+    "babel-plugin-istanbul": "^5.1.0",
+    "cross-env": "^5.2.0",
+    "jasmine": "3.2.0",
+    "jasmine-expect-moment": "^0.1.1",
+    "moment-timezone": "^0.5.21",
+    "nyc": "13.0.1",
+    "uglify-js": "3.4.9"
+  },
+  "dependencies": {
+    "@rail-style/fragments": "0.0.7"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  }
+}

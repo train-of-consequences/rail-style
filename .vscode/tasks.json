@@ -16,6 +16,13 @@
       "problemMatcher": []
     },
     {
+      "label": "@rail-style/mca",
+      "type": "shell",
+      "command": "cd packages/mca && npm install && npm run-script babelCoverage && npm run-script babelTests && npm run-script jasmine && npm run-script babel && npm run-script uglify-js",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "Bump Version",
       "type": "shell",
       "command": "cd tools && npm install && npm run-script bump-version",
