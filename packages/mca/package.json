@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/mca",
   "description": "A schema for RSPS5046 timetable data (*.mca).",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "uglify-js": "3.4.9"
   },
   "dependencies": {
-    "@rail-style/fragments": "0.0.8"
+    "@rail-style/fragments": "0.0.9"
   },
   "nyc": {
     "sourceMap": false,
