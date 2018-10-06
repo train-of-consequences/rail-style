@@ -121,19 +121,23 @@ export const constantRequired = constant => ({
   parse: text => text
 })
 
-export const enumOptional = (...values) => ({
-  regex: values
+export const enumOptional = values => ({
+  regex: Object
+    .keys(values)
     .map(escapeStringRegexp)
-    .concat(`\\s{${values[0].length}}`)
+    .concat(`\\s{${Object.keys(values)[0].length}}`)
     .join(`|`),
-  parse: text => text.trim() || null
+  parse: text => text.trim()
+    ? values[text]
+    : null
 })
 
-export const enumRequired = (...values) => ({
-  regex: values
+export const enumRequired = values => ({
+  regex: Object
+    .keys(values)
     .map(escapeStringRegexp)
     .join(`|`),
-  parse: text => text
+  parse: text => values[text]
 })
 
 export const stringOptional = length => ({

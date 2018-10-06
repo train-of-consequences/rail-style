@@ -719,15 +719,15 @@ describe(`constantRequired`, () => {
 })
 
 describe(`enumOptional`, () => {
-  const fragment = fragments.enumOptional(
-    `Another  Test  Constant`,
-    `teST Co$()\\.*?[]+nstant`,
-    `Yet Another Test Consta`,
-    `Final   Test   Constant`
-  )
+  const fragment = fragments.enumOptional({
+    "Another  Test  Constant": 7321,
+    "teST Co$()\\.*?[]+nstant": 934234,
+    "Yet Another Test Consta": 894759,
+    "Final   Test   Constant": 373
+  })
   runMatching(
     `exact`, fragment, `teST Co$()\\.*?[]+nstant`,
-    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+    parsed => expect(parsed).toEqual(934234)
   )
   runMatching(
     `spaces`, fragment, `                       `,
@@ -746,15 +746,15 @@ describe(`enumOptional`, () => {
 })
 
 describe(`enumRequired`, () => {
-  const fragment = fragments.enumRequired(
-    `Another  Test  Constant`,
-    `teST Co$()\\.*?[]+nstant`,
-    `Yet Another Test Consta`,
-    `Final   Test   Constant`
-  )
+  const fragment = fragments.enumRequired({
+    "Another  Test  Constant": 7321,
+    "teST Co$()\\.*?[]+nstant": 934234,
+    "Yet Another Test Consta": 894759,
+    "Final   Test   Constant": 373
+  })
   runMatching(
     `exact`, fragment, `teST Co$()\\.*?[]+nstant`,
-    parsed => expect(parsed).toEqual(`teST Co$()\\.*?[]+nstant`)
+    parsed => expect(parsed).toEqual(934234)
   )
   runNotMatching(`spaces`, fragment, `                       `)
   runNotMatching(`too few spaces`, fragment, `                      `)
