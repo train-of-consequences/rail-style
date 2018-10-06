@@ -30,7 +30,48 @@ export default {
     { trainUid: fragments.stringRequired(6) },
     { dateRunsFrom: fragments.yymmddRequired },
     { dateRunsTo: fragments.yymmddRequired },
-    { daysRun: fragments.stringRequired(7) },
+    {
+      daysRunMonday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunTuesday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunWednesday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunThursday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunFriday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunSaturday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      daysRunSunday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
     { bankHolidayRunning: fragments.constantOptional(`X`) },
     { trainStatus: fragments.stringOptional(1) },
     { trainCategory: fragments.stringOptional(2) },
@@ -152,7 +193,48 @@ export default {
     { assocUid: fragments.alphanumericRequired(6) },
     { assocStartDate: fragments.yymmddRequired },
     { assocEndDate: fragments.yymmddRequired },
-    { assocDays: fragments.stringRequired(7) },
+    {
+      assocDaysMonday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysTuesday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysWednesday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysThursday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysFriday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysSaturday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
+    {
+      assocDaysSunday: fragments.enumOptional({
+        "1": true,
+        "0": false
+      })
+    },
     { assocCat: fragments.stringOptional(2) },
     {
       assocDateInd: fragments.enumOptional({
