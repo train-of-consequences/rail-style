@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/mca",
   "description": "A schema for RSPS5046 timetable data (*.mca).",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "repository": {
     "type": "git",
