@@ -72,7 +72,12 @@ export default {
         "0": false
       })
     },
-    { bankHolidayRunning: fragments.constantOptional(`X`) },
+    {
+      bankHolidayRunning: fragments.enumOptional({
+        "X": `doesNotRunOnBankHolidayMondays`,
+        "G": `doesNotRunOnGlasgowBankHolidays`
+      })
+    },
     { trainStatus: fragments.stringOptional(1) },
     { trainCategory: fragments.stringOptional(2) },
     { trainIdentity: fragments.stringOptional(4) },

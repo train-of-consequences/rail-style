@@ -284,7 +284,13 @@ run(
 run(
   `basicSchedule`, `bankHolidayRunning`,
   `BSNTTRUID180620             X           C                                      C`,
-  bankHolidayRunning => expect(bankHolidayRunning).toEqual(`X`)
+  bankHolidayRunning => expect(bankHolidayRunning).toEqual(`doesNotRunOnBankHolidayMondays`)
+)
+
+run(
+  `basicSchedule`, `bankHolidayRunning`,
+  `BSNTTRUID180620             G           C                                      C`,
+  bankHolidayRunning => expect(bankHolidayRunning).toEqual(`doesNotRunOnGlasgowBankHolidays`)
 )
 
 run(
