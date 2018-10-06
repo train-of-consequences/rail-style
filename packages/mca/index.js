@@ -7,7 +7,12 @@ export default {
     { dateTimeOfExtract: fragments.ddmmyyhhmmRequired },
     { currentFileReference: fragments.stringRequired(7) },
     { lastFileReference: fragments.stringOptional(7) },
-    { updateIndicator: fragments.enumRequired(`U`, `F`) },
+    {
+      updateIndicator: fragments.enumRequired({
+        "U": `update`,
+        "F": `full`
+      })
+    },
     { version: fragments.stringRequired(1) },
     { extractStartDate: fragments.ddmmyyRequired },
     { extractEndDate: fragments.ddmmyyRequired },
@@ -15,7 +20,13 @@ export default {
   ],
   basicSchedule: [
     { recordIdentity: fragments.constantRequired(`BS`) },
-    { transactionType: fragments.enumRequired(`N`, `D`, `R`) },
+    {
+      transactionType: fragments.enumRequired({
+        "N": `new`,
+        "D": `delete`,
+        "R": `revise`
+      })
+    },
     { trainUid: fragments.stringRequired(6) },
     { dateRunsFrom: fragments.yymmddRequired },
     { dateRunsTo: fragments.yymmddRequired },
@@ -39,7 +50,14 @@ export default {
     { cateringCode: fragments.stringOptional(4) },
     { serviceBranding: fragments.stringOptional(4) },
     { spare: fragments.stringOptional(1) },
-    { stpIndicator: fragments.enumRequired(`C`, `N`, `O`, `P`) }
+    {
+      stpIndicator: fragments.enumRequired({
+        "C": `cancellation`,
+        "N": `new`,
+        "O": `overlay`,
+        "P": `permanent`
+      })
+    }
   ],
   basicScheduleExtra: [
     { recordIdentity: fragments.constantRequired(`BX`) },
@@ -123,21 +141,45 @@ export default {
   ],
   association: [
     { recordIdentity: fragments.constantRequired(`AA`) },
-    { transactionType: fragments.enumRequired(`N`, `D`, `R`) },
+    {
+      transactionType: fragments.enumRequired({
+        "N": `new`,
+        "D": `delete`,
+        "R": `revise`
+      })
+    },
     { baseUid: fragments.alphanumericRequired(6) },
     { assocUid: fragments.alphanumericRequired(6) },
     { assocStartDate: fragments.yymmddRequired },
     { assocEndDate: fragments.yymmddRequired },
     { assocDays: fragments.stringRequired(7) },
     { assocCat: fragments.stringOptional(2) },
-    { assocDateInd: fragments.enumOptional(`S`, `N`, `P`) },
+    {
+      assocDateInd: fragments.enumOptional({
+        "S": `standard`,
+        "N": `overNextMidnight`,
+        "P": `overPreviousMidnight`
+      })
+    },
     { assocLocation: fragments.stringRequired(7) },
     { baseLocationSuffix: fragments.constantOptional(`2`) },
     { assocLocationSuffix: fragments.constantOptional(`2`) },
     { diagramType: fragments.constantRequired(`T`) },
-    { associationType: fragments.enumOptional(`P`, `O`) },
+    {
+      associationType: fragments.enumOptional({
+        "P": `passenger`,
+        "O": `operating`
+      })
+    },
     { filler: fragments.stringOptional(31) },
-    { stpIndicator: fragments.enumRequired(`C`, `N`, `O`, `P`) }
+    {
+      stpIndicator: fragments.enumRequired({
+        "C": `cancellation`,
+        "N": `new`,
+        "O": `overlay`,
+        "P": `permanent`
+      })
+    }
   ],
   tiplocInsert: [
     { recordIdentity: fragments.constantRequired(`TI`) },

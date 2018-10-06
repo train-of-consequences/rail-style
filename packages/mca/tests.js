@@ -62,19 +62,19 @@ run(
 run(
   `headerRecord`, `updateIndicator`,
   `HDTest  File  Identity2308161627T  F  R       UO190217240726                    `,
-  updateIndicator => expect(updateIndicator).toEqual(`U`)
+  updateIndicator => expect(updateIndicator).toEqual(`update`)
 )
 
 run(
   `headerRecord`, `updateIndicator`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
-  updateIndicator => expect(updateIndicator).toEqual(`F`)
+  updateIndicator => expect(updateIndicator).toEqual(`full`)
 )
 
 run(
   `headerRecord`, `updateIndicator`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
-  updateIndicator => expect(updateIndicator).toEqual(`F`)
+  updateIndicator => expect(updateIndicator).toEqual(`full`)
 )
 
 run(
@@ -116,19 +116,19 @@ run(
 run(
   `basicSchedule`, `transactionType`,
   `BSNTTRUID1806201809101011011            C                                      C`,
-  transactionType => expect(transactionType).toEqual(`N`)
+  transactionType => expect(transactionType).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
   `BSDTTRUID1806201809101011011            C                                      C`,
-  transactionType => expect(transactionType).toEqual(`D`)
+  transactionType => expect(transactionType).toEqual(`delete`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
   `BSRTTRUID1806201809101011011            C                                      C`,
-  transactionType => expect(transactionType).toEqual(`R`)
+  transactionType => expect(transactionType).toEqual(`revise`)
 )
 
 run(
@@ -374,25 +374,25 @@ run(
 run(
   `basicSchedule`, `stpIndicator`,
   `BSNTTRUID1806201809101011011            C                                      C`,
-  stpIndicator => expect(stpIndicator).toEqual(`C`)
+  stpIndicator => expect(stpIndicator).toEqual(`cancellation`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
   `BSNTTRUID1806201809101011011            C                                      N`,
-  stpIndicator => expect(stpIndicator).toEqual(`N`)
+  stpIndicator => expect(stpIndicator).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
   `BSNTTRUID1806201809101011011            C                                      O`,
-  stpIndicator => expect(stpIndicator).toEqual(`O`)
+  stpIndicator => expect(stpIndicator).toEqual(`overlay`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
   `BSNTTRUID1806201809101011011            C                                      P`,
-  stpIndicator => expect(stpIndicator).toEqual(`P`)
+  stpIndicator => expect(stpIndicator).toEqual(`permanent`)
 )
 
 run(
@@ -1143,19 +1143,19 @@ run(
 run(
   `association`, `transactionType`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  T                                C`,
-  transactionType => expect(transactionType).toEqual(`N`)
+  transactionType => expect(transactionType).toEqual(`new`)
 )
 
 run(
   `association`, `transactionType`,
   `AADBASEUIASSOUI0712241503221011011   LOCATIO  T                                C`,
-  transactionType => expect(transactionType).toEqual(`D`)
+  transactionType => expect(transactionType).toEqual(`delete`)
 )
 
 run(
   `association`, `transactionType`,
   `AARBASEUIASSOUI0712241503221011011   LOCATIO  T                                C`,
-  transactionType => expect(transactionType).toEqual(`R`)
+  transactionType => expect(transactionType).toEqual(`revise`)
 )
 
 run(
@@ -1209,19 +1209,19 @@ run(
 run(
   `association`, `assocDateInd`,
   `AANBASEUIASSOUI0712241503221011011  SLOCATIO  T                                C`,
-  assocDateInd => expect(assocDateInd).toEqual(`S`)
+  assocDateInd => expect(assocDateInd).toEqual(`standard`)
 )
 
 run(
   `association`, `assocDateInd`,
   `AANBASEUIASSOUI0712241503221011011  NLOCATIO  T                                C`,
-  assocDateInd => expect(assocDateInd).toEqual(`N`)
+  assocDateInd => expect(assocDateInd).toEqual(`overNextMidnight`)
 )
 
 run(
   `association`, `assocDateInd`,
   `AANBASEUIASSOUI0712241503221011011  PLOCATIO  T                                C`,
-  assocDateInd => expect(assocDateInd).toEqual(`P`)
+  assocDateInd => expect(assocDateInd).toEqual(`overPreviousMidnight`)
 )
 
 run(
@@ -1269,13 +1269,13 @@ run(
 run(
   `association`, `associationType`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  TP                               C`,
-  associationType => expect(associationType).toEqual(`P`)
+  associationType => expect(associationType).toEqual(`passenger`)
 )
 
 run(
   `association`, `associationType`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  TO                               C`,
-  associationType => expect(associationType).toEqual(`O`)
+  associationType => expect(associationType).toEqual(`operating`)
 )
 
 run(
@@ -1293,25 +1293,25 @@ run(
 run(
   `association`, `stpIndicator`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  T                                C`,
-  stpIndicator => expect(stpIndicator).toEqual(`C`)
+  stpIndicator => expect(stpIndicator).toEqual(`cancellation`)
 )
 
 run(
   `association`, `stpIndicator`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  T                                N`,
-  stpIndicator => expect(stpIndicator).toEqual(`N`)
+  stpIndicator => expect(stpIndicator).toEqual(`new`)
 )
 
 run(
   `association`, `stpIndicator`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  T                                O`,
-  stpIndicator => expect(stpIndicator).toEqual(`O`)
+  stpIndicator => expect(stpIndicator).toEqual(`overlay`)
 )
 
 run(
   `association`, `stpIndicator`,
   `AANBASEUIASSOUI0712241503221011011   LOCATIO  T                                P`,
-  stpIndicator => expect(stpIndicator).toEqual(`P`)
+  stpIndicator => expect(stpIndicator).toEqual(`permanent`)
 )
 
 run(
