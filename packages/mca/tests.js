@@ -301,8 +301,62 @@ run(
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              Q          C                                      C`,
-  trainStatus => expect(trainStatus).toEqual(`Q`)
+  `BSNTTRUID180620              B          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`permanentBus`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              F          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`permanentFreight`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              P          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`permanentPassengerAndParcels`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              S          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`permanentShip`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              T          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`permanentTrip`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              1          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`shortTermPlanPassengerAndParcels`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              2          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`shortTermPlanFreight`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              3          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`shortTermPlanTrip`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              4          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`shortTermPlanShip`)
+)
+
+run(
+  `basicSchedule`, `trainStatus`,
+  `BSNTTRUID180620              5          C                                      C`,
+  trainStatus => expect(trainStatus).toEqual(`shortTermPlanBus`)
 )
 
 run(

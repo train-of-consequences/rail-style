@@ -78,7 +78,20 @@ export default {
         "G": `doesNotRunOnGlasgowBankHolidays`
       })
     },
-    { trainStatus: fragments.stringOptional(1) },
+    {
+      trainStatus: fragments.enumOptional({
+        "B": `permanentBus`,
+        "F": `permanentFreight`,
+        "P": `permanentPassengerAndParcels`,
+        "S": `permanentShip`,
+        "T": `permanentTrip`,
+        "1": `shortTermPlanPassengerAndParcels`,
+        "2": `shortTermPlanFreight`,
+        "3": `shortTermPlanTrip`,
+        "4": `shortTermPlanShip`,
+        "5": `shortTermPlanBus`
+      })
+    },
     { trainCategory: fragments.stringOptional(2) },
     { trainIdentity: fragments.stringOptional(4) },
     { headcode: fragments.stringOptional(4) },
