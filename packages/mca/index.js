@@ -29,7 +29,7 @@ export default {
     },
     { trainUid: fragments.stringRequired(6) },
     { dateRunsFrom: fragments.yymmddRequired },
-    { dateRunsTo: fragments.yymmddRequired },
+    { dateRunsTo: fragments.yymmddOptional },
     {
       daysRunMonday: fragments.enumOptional({
         "1": true,

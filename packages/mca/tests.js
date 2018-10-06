@@ -103,38 +103,44 @@ run(
 
 run(
   `basicSchedule`, `recordIdentity`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   recordIdentity => expect(recordIdentity).toEqual(`BS`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   transactionType => expect(transactionType).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSDTTRUID180620180910                   C                                      C`,
+  `BSDTTRUID180620                         C                                      C`,
   transactionType => expect(transactionType).toEqual(`delete`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSRTTRUID180620180910                   C                                      C`,
+  `BSRTTRUID180620                         C                                      C`,
   transactionType => expect(transactionType).toEqual(`revise`)
 )
 
 run(
   `basicSchedule`, `trainUid`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   trainUid => expect(trainUid).toEqual(`TTRUID`)
 )
 
 run(
   `basicSchedule`, `dateRunsFrom`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   dateRunsFrom => expect(dateRunsFrom).toBeSameMoment(moment(`2018-06-20T00:00:00+01:00`))
+)
+
+run(
+  `basicSchedule`, `dateRunsTo`,
+  `BSNTTRUID180620                         C                                      C`,
+  dateRunsTo => expect(dateRunsTo).toBeNull()
 )
 
 run(
@@ -145,367 +151,367 @@ run(
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunMonday => expect(daysRunMonday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID1806201809100                  C                                      C`,
+  `BSNTTRUID180620      0                  C                                      C`,
   daysRunMonday => expect(daysRunMonday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID1806201809101                  C                                      C`,
+  `BSNTTRUID180620      1                  C                                      C`,
   daysRunMonday => expect(daysRunMonday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620180910 0                 C                                      C`,
+  `BSNTTRUID180620       0                 C                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620180910 1                 C                                      C`,
+  `BSNTTRUID180620       1                 C                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620180910  0                C                                      C`,
+  `BSNTTRUID180620        0                C                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620180910  1                C                                      C`,
+  `BSNTTRUID180620        1                C                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunThursday => expect(daysRunThursday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620180910   0               C                                      C`,
+  `BSNTTRUID180620         0               C                                      C`,
   daysRunThursday => expect(daysRunThursday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620180910   1               C                                      C`,
+  `BSNTTRUID180620         1               C                                      C`,
   daysRunThursday => expect(daysRunThursday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunFriday => expect(daysRunFriday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620180910    0              C                                      C`,
+  `BSNTTRUID180620          0              C                                      C`,
   daysRunFriday => expect(daysRunFriday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620180910    1              C                                      C`,
+  `BSNTTRUID180620          1              C                                      C`,
   daysRunFriday => expect(daysRunFriday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620180910     0             C                                      C`,
+  `BSNTTRUID180620           0             C                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620180910     1             C                                      C`,
+  `BSNTTRUID180620           1             C                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   daysRunSunday => expect(daysRunSunday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620180910      0            C                                      C`,
+  `BSNTTRUID180620            0            C                                      C`,
   daysRunSunday => expect(daysRunSunday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620180910      1            C                                      C`,
+  `BSNTTRUID180620            1            C                                      C`,
   daysRunSunday => expect(daysRunSunday).toBe(true)
 )
 
 run(
   `basicSchedule`, `bankHolidayRunning`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   bankHolidayRunning => expect(bankHolidayRunning).toBeNull()
 )
 
 run(
   `basicSchedule`, `bankHolidayRunning`,
-  `BSNTTRUID180620180910       X           C                                      C`,
+  `BSNTTRUID180620             X           C                                      C`,
   bankHolidayRunning => expect(bankHolidayRunning).toEqual(`X`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   trainStatus => expect(trainStatus).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620180910        Q          C                                      C`,
+  `BSNTTRUID180620              Q          C                                      C`,
   trainStatus => expect(trainStatus).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `trainCategory`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   trainCategory => expect(trainCategory).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainCategory`,
-  `BSNTTRUID180620180910         QR        C                                      C`,
+  `BSNTTRUID180620               QR        C                                      C`,
   trainCategory => expect(trainCategory).toEqual(`QR`)
 )
 
 run(
   `basicSchedule`, `trainIdentity`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   trainIdentity => expect(trainIdentity).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainIdentity`,
-  `BSNTTRUID180620180910           QREB    C                                      C`,
+  `BSNTTRUID180620                 QREB    C                                      C`,
   trainIdentity => expect(trainIdentity).toEqual(`QREB`)
 )
 
 run(
   `basicSchedule`, `headcode`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   headcode => expect(headcode).toBeNull()
 )
 
 run(
   `basicSchedule`, `headcode`,
-  `BSNTTRUID180620180910               QREBC                                      C`,
+  `BSNTTRUID180620                     QREBC                                      C`,
   headcode => expect(headcode).toEqual(`QREB`)
 )
 
 run(
   `basicSchedule`, `courseIndicator`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   courseIndicator => expect(courseIndicator).toEqual(`C`)
 )
 
 run(
   `basicSchedule`, `profitCentreCodeTrainServiceCode`,
-  `BSNTTRUID180620180910                   C73628191                              C`,
+  `BSNTTRUID180620                         C73628191                              C`,
   profitCentreCodeTrainServiceCode => expect(profitCentreCodeTrainServiceCode).toEqual(73628191)
 )
 
 run(
   `basicSchedule`, `businessSector`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   businessSector => expect(businessSector).toBeNull()
 )
 
 run(
   `basicSchedule`, `businessSector`,
-  `BSNTTRUID180620180910                   C        Q                             C`,
+  `BSNTTRUID180620                         C        Q                             C`,
   businessSector => expect(businessSector).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `powerType`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   powerType => expect(powerType).toBeNull()
 )
 
 run(
   `basicSchedule`, `powerType`,
-  `BSNTTRUID180620180910                   C         QBE                          C`,
+  `BSNTTRUID180620                         C         QBE                          C`,
   powerType => expect(powerType).toEqual(`QBE`)
 )
 
 run(
   `basicSchedule`, `timingLoad`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   timingLoad => expect(timingLoad).toBeNull()
 )
 
 run(
   `basicSchedule`, `timingLoad`,
-  `BSNTTRUID180620180910                   C            QBRE                      C`,
+  `BSNTTRUID180620                         C            QBRE                      C`,
   timingLoad => expect(timingLoad).toEqual(`QBRE`)
 )
 
 run(
   `basicSchedule`, `speed`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   speed => expect(speed).toBeNull()
 )
 
 run(
   `basicSchedule`, `speed`,
-  `BSNTTRUID180620180910                   C                731                   C`,
+  `BSNTTRUID180620                         C                731                   C`,
   speed => expect(speed).toEqual(731)
 )
 
 run(
   `basicSchedule`, `operatingChars`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   operatingChars => expect(operatingChars).toBeNull()
 )
 
 run(
   `basicSchedule`, `operatingChars`,
-  `BSNTTRUID180620180910                   C                   TESTOC             C`,
+  `BSNTTRUID180620                         C                   TESTOC             C`,
   operatingChars => expect(operatingChars).toEqual(`TESTOC`)
 )
 
 run(
   `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   trainClass => expect(trainClass).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620180910                   C                         Q            C`,
+  `BSNTTRUID180620                         C                         Q            C`,
   trainClass => expect(trainClass).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   sleepers => expect(sleepers).toBeNull()
 )
 
 run(
   `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620180910                   C                          Q           C`,
+  `BSNTTRUID180620                         C                          Q           C`,
   sleepers => expect(sleepers).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `reservations`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   reservations => expect(reservations).toBeNull()
 )
 
 run(
   `basicSchedule`, `reservations`,
-  `BSNTTRUID180620180910                   C                           Q          C`,
+  `BSNTTRUID180620                         C                           Q          C`,
   reservations => expect(reservations).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `connectIndicator`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   connectIndicator => expect(connectIndicator).toBeNull()
 )
 
 run(
   `basicSchedule`, `connectIndicator`,
-  `BSNTTRUID180620180910                   C                            Q         C`,
+  `BSNTTRUID180620                         C                            Q         C`,
   connectIndicator => expect(connectIndicator).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   cateringCode => expect(cateringCode).toBeNull()
 )
 
 run(
   `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620180910                   C                             QBER     C`,
+  `BSNTTRUID180620                         C                             QBER     C`,
   cateringCode => expect(cateringCode).toEqual(`QBER`)
 )
 
 run(
   `basicSchedule`, `serviceBranding`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   serviceBranding => expect(serviceBranding).toBeNull()
 )
 
 run(
   `basicSchedule`, `serviceBranding`,
-  `BSNTTRUID180620180910                   C                                 QBER C`,
+  `BSNTTRUID180620                         C                                 QBER C`,
   serviceBranding => expect(serviceBranding).toEqual(`QBER`)
 )
 
 run(
   `basicSchedule`, `spare`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   spare => expect(spare).toBeNull()
 )
 
 run(
   `basicSchedule`, `spare`,
-  `BSNTTRUID180620180910                   C                                     QC`,
+  `BSNTTRUID180620                         C                                     QC`,
   spare => expect(spare).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620                         C                                      C`,
   stpIndicator => expect(stpIndicator).toEqual(`cancellation`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620180910                   C                                      N`,
+  `BSNTTRUID180620                         C                                      N`,
   stpIndicator => expect(stpIndicator).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620180910                   C                                      O`,
+  `BSNTTRUID180620                         C                                      O`,
   stpIndicator => expect(stpIndicator).toEqual(`overlay`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620180910                   C                                      P`,
+  `BSNTTRUID180620                         C                                      P`,
   stpIndicator => expect(stpIndicator).toEqual(`permanent`)
 )
 
