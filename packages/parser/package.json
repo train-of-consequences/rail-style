@@ -37,6 +37,6 @@
     "instrument": false
   },
   "peerDependencies": {
-    "@rail-style/fragments": "0.0.10"
+    "@rail-style/fragments": "0.0.9"
   }
 }
