@@ -140,6 +140,14 @@ export const enumRequired = values => ({
   parse: text => values[text]
 })
 
+export const flags = (length, values) => ({
+  regex: `[${Object.keys(values).join()} ]{${length}}`,
+  parse: text => Array
+    .from(text)
+    .filter(character => Object.keys(values).includes(character))
+    .map(character => values[character])
+})
+
 export const stringOptional = length => ({
   regex: `.{${length}}`,
   parse: text => text.trim() || null

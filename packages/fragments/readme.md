@@ -10,6 +10,8 @@ Fragments which can be used to describe a fixed-width format.
 | enumOptional({ abc: 123, def: 456, ghi: 789 }) | `def`          | Any                  | 456                       |
 | -                                              | `   `          | null                 | null                      |
 | enumRequired({ abc: 123, def: 456, ghi: 789 }) | `def`          | Any                  | 456                       |
+| flags(4, { a: 1, b: 2, c: 3, d: 4 })           | `cb  `         | Array of Any         | [3, 2]                    |
+| -                                              | `    `         | Array of Any         | []                        |
 | stringOptional(4)                              | `abcd`         | String               | `abcd`                    |
 | stringOptional(4)                              | `ab  `         | String               | `ab`                      |
 | stringOptional(4)                              | `    `         | null                 | null                      |

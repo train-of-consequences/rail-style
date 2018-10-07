@@ -769,6 +769,45 @@ describe(`enumRequired`, () => {
   runNotMatching(`case mismatch`, fragment, `teST Co$()\\.*?[]+nStant`)
 })
 
+describe(`flags`, () => {
+  const fragment = fragments.flags(6, {
+    "$": 823947,
+    "(": 37829,
+    "[": 77648,
+    "Q": 55267,
+    "H": 8473,
+    "O": 633,
+    "N": 462,
+    "V": 77238,
+    "X": 55255,
+    "Z": 992
+  })
+  runMatching(`empty`, fragment, `      `, parsed => expect(parsed).toEqual([]))
+  runNotMatching(`too short`, fragment, `     `)
+  runNotMatching(`too long`, fragment, `       `)
+  runMatching(
+    `one flag`,
+    fragment,
+    `  [   `,
+    parsed => expect(parsed).toEqual([77648])
+  )
+  runMatching(
+    `two flags`,
+    fragment,
+    `  [ $ `,
+    parsed => expect(parsed).toEqual([77648, 823947])
+  )
+  runMatching(
+    `full flags`,
+    fragment,
+    `N(VX$O`,
+    parsed => expect(parsed).toEqual([462, 37829, 77238, 55255, 823947, 633])
+  )
+  runNotMatching(`too few full flags`, fragment, `N(VX$`)
+  runNotMatching(`too many full flags`, fragment, `N(VX$OH`)
+  runNotMatching(`unexpected flags`, fragment, `$IVOHQ`)
+})
+
 describe(`stringOptional`, () => {
   runMatching(
     `full length`, fragments.stringOptional(9), `World, Hi`,
