@@ -8,4 +8,4 @@ NOTE: This is not endorsed by or associated with Rail Delivery Group, Rail
 Settlement Plan, Association of Train Operating Companies or any of their
 affiliates.
 
-The schema is best described by the [source code used to implement it](index.js).
+The schema is best described by the [source code used to implement it](https://github.com/train-of-consequences/rail-style/blob/master/packages/cif/index.js).
