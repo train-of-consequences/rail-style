@@ -5,7 +5,7 @@ Fragments which can be used to describe a fixed-width format.
 | Export                                         | Example        | Type                 | Value                     |
 |------------------------------------------------|----------------|----------------------|---------------------------|
 | constantOptional("abc")                        | `abc`          | String               | `abc`                     |
-| constantOptional("abc")                        | `   `          | null                 | null                      |
+| -                                              | `   `          | null                 | null                      |
 | constantRequired("abc")                        | `abc`          | String               | `abc`                     |
 | enumOptional({ abc: 123, def: 456, ghi: 789 }) | `def`          | Any                  | 456                       |
 | -                                              | `   `          | null                 | null                      |
@@ -13,19 +13,19 @@ Fragments which can be used to describe a fixed-width format.
 | flags(4, { a: 1, b: 2, c: 3, d: 4 })           | `cb  `         | Array of Any         | [3, 2]                    |
 | -                                              | `    `         | Array of Any         | []                        |
 | stringOptional(4)                              | `abcd`         | String               | `abcd`                    |
-| stringOptional(4)                              | `ab  `         | String               | `ab`                      |
-| stringOptional(4)                              | `    `         | null                 | null                      |
+| -                                              | `ab  `         | String               | `ab`                      |
+| -                                              | `    `         | null                 | null                      |
 | stringRequired(4)                              | `abcd`         | String               | `abcd`                    |
-| stringRequired(4)                              | `ab  `         | String               | `ab`                      |
+| -                                              | `ab  `         | String               | `ab`                      |
 | unsignedOptional(4)                            | `1234`         | Number               | 1234                      |
-| unsignedOptional(4)                            | `12  `         | Number               | 12                        |
-| unsignedOptional(4)                            | `  12`         | Number               | 12                        |
-| unsignedOptional(4)                            | `    `         | null                 | null                      |
+| -                                              | `12  `         | Number               | 12                        |
+| -                                              | `  12`         | Number               | 12                        |
+| -                                              | `    `         | null                 | null                      |
 | unsignedRequired(4)                            | `1234`         | Number               | 1234                      |
-| unsignedRequired(4)                            | `12  `         | Number               | 12                        |
-| unsignedRequired(4)                            | `  12`         | Number               | 12                        |
+| -                                              | `12  `         | Number               | 12                        |
+| -                                              | `  12`         | Number               | 12                        |
 | alphanumericOptional(4)                        | `D4X8`         | String               | `D4X8`                    |
-| alphanumericOptional(4)                        | `    `         | null                 | null                      |
+| -                                              | `    `         | null                 | null                      |
 | alphanumericRequired(4)                        | `D4X8`         | String               | `D4X8`                    |
 | ddmmyyOptional                                 | `251023`       | Moment.js (UK-local) | 2023-10-25T00:00:00+01:00 |
 | -                                              | `      `       | null                 | null                      |
