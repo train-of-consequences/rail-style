@@ -16,9 +16,9 @@
       "problemMatcher": []
     },
     {
-      "label": "@rail-style/mca",
+      "label": "@rail-style/cif",
       "type": "shell",
-      "command": "cd packages/mca && npm install && npm run-script babelCoverage && npm run-script babelTests && npm run-script jasmine && npm run-script babel && npm run-script uglify-js",
+      "command": "cd packages/cif && npm install && npm run-script babelCoverage && npm run-script babelTests && npm run-script jasmine && npm run-script babel && npm run-script uglify-js",
       "group": "build",
       "problemMatcher": []
     },

@@ -1,6 +1,6 @@
 import moment from "moment-timezone"
 import "jasmine-expect-moment"
-import mca from "./index.coverage"
+import cif from "./index.coverage"
 import parser from "@rail-style/parser"
 
 const run = (lineName, fragmentName, line, verifyParsed) => describe(`${lineName} ${fragmentName}`, () => {
@@ -17,7 +17,7 @@ const run = (lineName, fragmentName, line, verifyParsed) => describe(`${lineName
         parsed = fragment
       }
     }
-    parser(mca, null, handlers, () => { })(line)
+    parser(cif, null, handlers, () => { })(line)
   })
   it(`matches`, () => expect(matched).toBeTruthy())
   it(`is parsed`, () => verifyParsed(parsed))

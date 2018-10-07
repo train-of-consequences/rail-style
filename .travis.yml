@@ -37,18 +37,18 @@ jobs:
         tags: true
         branch: master
         repo: train-of-consequences/rail-style
-  - stage: "@rail-style/mca"
+  - stage: "@rail-style/cif"
     install:
-    - npm install --prefix packages/mca
+    - npm install --prefix packages/cif
     script:
-    - npm run-script babelCoverage --prefix packages/mca
-    - npm run-script babelTests --prefix packages/mca
-    - npm run-script jasmine --prefix packages/mca
-    - npm run-script babel --prefix packages/mca
-    - npm run-script uglify-js --prefix packages/mca
+    - npm run-script babelCoverage --prefix packages/cif
+    - npm run-script babelTests --prefix packages/cif
+    - npm run-script jasmine --prefix packages/cif
+    - npm run-script babel --prefix packages/cif
+    - npm run-script uglify-js --prefix packages/cif
     deploy:
     - provider: script
-      script: echo $NPM_TOKEN > ~/.npmrc && npm publish packages/mca
+      script: echo $NPM_TOKEN > ~/.npmrc && npm publish packages/cif
       skip_cleanup: true
       on:
         tags: true

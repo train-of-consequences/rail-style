@@ -1,6 +1,6 @@
 {
-  "name": "@rail-style/mca",
-  "description": "A schema for RSPS5046 timetable data (*.mca).",
+  "name": "@rail-style/cif",
+  "description": "A schema for RSPS5046 timetable data (CIF, which may be in a file called *.mca).",
   "version": "0.0.9",
   "license": "MIT",
   "repository": {
