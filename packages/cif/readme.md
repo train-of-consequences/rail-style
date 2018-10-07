@@ -9,3 +9,6 @@ Settlement Plan, Association of Train Operating Companies or any of their
 affiliates.
 
 The schema is best described by the [source code used to implement it](https://github.com/train-of-consequences/rail-style/blob/master/packages/cif/index.js).
+
+To use this schema, use the
+[@rail-style/parser](https://www.npmjs.com/package/@rail-style/parser) package.
