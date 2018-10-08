@@ -12,3 +12,6 @@ The schema is best described by the [source code used to implement it](https://g
 
 To use this schema, use the
 [@rail-style/parser](https://www.npmjs.com/package/@rail-style/parser) package.
+
+This could not have been made without reference to the
+[Open Rail Data Wiki](https://wiki.openraildata.com).
