@@ -59,6 +59,19 @@ const trainCategory = {
   })
 }
 
+const powerType = {
+  powerType: fragments.enumOptional({
+    "D  ": `dieselOrSteam`,
+    "DEM": `dieselElectricMultipleUnit`,
+    "DMU": `dieselMechanicalMultipleUnit`,
+    "E  ": `electric`,
+    "ED ": `electroDiesel`,
+    "EML": `electricMultipleUnitPlusLocomotive`,
+    "EMU": `electricMultipleUnit`,
+    "HST": `highSpeedTrain`
+  })
+}
+
 export default {
   headerRecord: [
     { recordIdentity: fragments.constantRequired(`HD`) },
@@ -157,7 +170,7 @@ export default {
     { courseIndicator: fragments.constantRequired(`1`) },
     { profitCentreCodeTrainServiceCode: fragments.unsignedOptional(8) },
     { businessSector: fragments.stringOptional(1) },
-    { powerType: fragments.stringOptional(3) },
+    powerType,
     { timingLoad: fragments.stringOptional(4) },
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },
@@ -231,7 +244,7 @@ export default {
     { courseIndicator: fragments.constantRequired(`1`) },
     { profitCentreCodeTrainServiceCode: fragments.unsignedOptional(8) },
     { businessSector: fragments.stringOptional(1) },
-    { powerType: fragments.stringOptional(3) },
+    powerType,
     { timingLoad: fragments.stringOptional(4) },
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },

@@ -88,6 +88,25 @@ const runTrainCategory = (lineName, fragmentName, lineFactory) => {
   runTrainRecordMapping(`H6`, `railfreightDistributionEuropeanChannelTunnelJointVenture`)
 }
 
+const runPowerType = (lineName, fragmentName, lineFactory) => {
+  run(
+    lineName, fragmentName, lineFactory(`   `),
+    powerType => expect(powerType).toBeNull()
+  )
+  const runPowerTypeMapping = (from, to) => run(
+    lineName, fragmentName, lineFactory(from),
+    powerType => expect(powerType).toEqual(to)
+  )
+  runPowerTypeMapping(`D  `, `dieselOrSteam`)
+  runPowerTypeMapping(`DEM`, `dieselElectricMultipleUnit`)
+  runPowerTypeMapping(`DMU`, `dieselMechanicalMultipleUnit`)
+  runPowerTypeMapping(`E  `, `electric`)
+  runPowerTypeMapping(`ED `, `electroDiesel`)
+  runPowerTypeMapping(`EML`, `electricMultipleUnitPlusLocomotive`)
+  runPowerTypeMapping(`EMU`, `electricMultipleUnit`)
+  runPowerTypeMapping(`HST`, `highSpeedTrain`)
+}
+
 run(
   `headerRecord`, `recordIdentity`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
@@ -478,16 +497,9 @@ run(
   businessSector => expect(businessSector).toEqual(`Q`)
 )
 
-run(
+runPowerType(
   `basicSchedule`, `powerType`,
-  `BSNTTRUID180620                         1                                      C`,
-  powerType => expect(powerType).toBeNull()
-)
-
-run(
-  `basicSchedule`, `powerType`,
-  `BSNTTRUID180620                         1         QBE                          C`,
-  powerType => expect(powerType).toEqual(`QBE`)
+  code => `BSNTTRUID180620                         1         ${code}                          C`
 )
 
 run(
@@ -1109,16 +1121,9 @@ run(
   businessSector => expect(businessSector).toEqual(`Q`)
 )
 
-run(
+runPowerType(
   `changesEnRoute`, `powerType`,
-  `CRLOCATION          1                                                           `,
-  powerType => expect(powerType).toBeNull()
-)
-
-run(
-  `changesEnRoute`, `powerType`,
-  `CRLOCATION          1         QBE                                               `,
-  powerType => expect(powerType).toEqual(`QBE`)
+  code => `CRLOCATION          1         ${code}                                               `
 )
 
 run(
