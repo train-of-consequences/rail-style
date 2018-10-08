@@ -2,7 +2,7 @@ import escapeStringRegexp from "escape-string-regexp"
 import { tz as momentTz } from "moment-timezone"
 
 export const ddmmyyOptional = {
-  regex: `[0-9]{6}|\\s{6}`,
+  regex: `[0-9]{6}| {6}`,
   parse: text => text != `      `
     ? momentTz(text, `DDMMYY`, `Europe/London`)
     : null
@@ -14,7 +14,7 @@ export const ddmmyyRequired = {
 }
 
 export const ddmmyyyyOptional = {
-  regex: `[0-9]{8}|\\s{8}`,
+  regex: `[0-9]{8}| {8}`,
   parse: text => text != `        `
     ? momentTz(text, `DDMMYYYY`, `Europe/London`)
     : null
@@ -26,7 +26,7 @@ export const ddmmyyyyRequired = {
 }
 
 export const yymmddOptional = {
-  regex: `[0-9]{6}|\\s{6}`,
+  regex: `[0-9]{6}| {6}`,
   parse: text => text != `      `
     ? momentTz(text, `YYMMDD`, `Europe/London`)
     : null
@@ -38,7 +38,7 @@ export const yymmddRequired = {
 }
 
 export const yyyymmddOptional = {
-  regex: `[0-9]{8}|\\s{8}`,
+  regex: `[0-9]{8}| {8}`,
   parse: text => text != `        `
     ? momentTz(text, `YYYYMMDD`, `Europe/London`)
     : null
@@ -50,7 +50,7 @@ export const yyyymmddRequired = {
 }
 
 export const ddmmyyhhmmOptional = {
-  regex: `[0-9]{10}|\\s{10}`,
+  regex: `[0-9]{10}| {10}`,
   parse: text => text != `          `
     ? momentTz(text, `DDMMYYhhmm`, `Europe/London`)
     : null
@@ -62,7 +62,7 @@ export const ddmmyyhhmmRequired = {
 }
 
 export const ddmmyyyyhhmmOptional = {
-  regex: `[0-9]{12}|\\s{12}`,
+  regex: `[0-9]{12}| {12}`,
   parse: text => text != `            `
     ? momentTz(text, `DDMMYYYYhhmm`, `Europe/London`)
     : null
@@ -74,7 +74,7 @@ export const ddmmyyyyhhmmRequired = {
 }
 
 export const yymmddhhmmOptional = {
-  regex: `[0-9]{10}|\\s{10}`,
+  regex: `[0-9]{10}| {10}`,
   parse: text => text != `          `
     ? momentTz(text, `YYMMDDhhmm`, `Europe/London`)
     : null
@@ -86,7 +86,7 @@ export const yymmddhhmmRequired = {
 }
 
 export const yyyymmddhhmmOptional = {
-  regex: `[0-9]{12}|\\s{12}`,
+  regex: `[0-9]{12}| {12}`,
   parse: text => text != `            `
     ? momentTz(text, `YYYYMMDDhhmm`, `Europe/London`)
     : null
@@ -100,7 +100,7 @@ export const yyyymmddhhmmRequired = {
 const convertHhmm = text => momentTz(`00010101${text}`, `YYYYMMDDhhmm`, `Europe/London`)
 
 export const hhmmOptional = {
-  regex: `[0-9]{4}|\\s{4}`,
+  regex: `[0-9]{4}| {4}`,
   parse: text => text != `    `
     ? convertHhmm(text)
     : null
@@ -112,7 +112,7 @@ export const hhmmRequired = {
 }
 
 export const constantOptional = constant => ({
-  regex: `${escapeStringRegexp(constant)}|\\s{${constant.length}}`,
+  regex: `${escapeStringRegexp(constant)}| {${constant.length}}`,
   parse: text => text.trim() || null
 })
 
@@ -125,7 +125,7 @@ export const enumOptional = values => ({
   regex: Object
     .keys(values)
     .map(escapeStringRegexp)
-    .concat(`\\s{${Object.keys(values)[0].length}}`)
+    .concat(` {${Object.keys(values)[0].length}}`)
     .join(`|`),
   parse: text => text.trim()
     ? values[text]
@@ -159,7 +159,7 @@ export const stringRequired = length => ({
 })
 
 export const alphanumericOptional = length => ({
-  regex: `[A-Z0-9]{${length}}|\\s{${length}}`,
+  regex: `[A-Z0-9]{${length}}| {${length}}`,
   parse: text => text.trim()
     ? text
     : null
@@ -173,10 +173,10 @@ export const alphanumericRequired = length => ({
 export const unsignedOptional = length => {
   let regex = `\\d{${length}}`
   for (let i = 1; i < length; i++) {
-    regex += `|\\d{${i}}\\s{${length - i}}`
-    regex += `|\\s{${length - i}}\\d{${i}}`
+    regex += `|\\d{${i}} {${length - i}}`
+    regex += `| {${length - i}}\\d{${i}}`
   }
-  regex += `|\\s{${length}}`
+  regex += `| {${length}}`
   return {
     regex,
     parse: text => text.trim()
@@ -188,8 +188,8 @@ export const unsignedOptional = length => {
 export const unsignedRequired = length => {
   let regex = `\\d{${length}}`
   for (let i = 1; i < length; i++) {
-    regex += `|\\d{${i}}\\s{${length - i}}`
-    regex += `|\\s{${length - i}}\\d{${i}}`
+    regex += `|\\d{${i}} {${length - i}}`
+    regex += `| {${length - i}}\\d{${i}}`
   }
   return {
     regex,
