@@ -1,5 +1,64 @@
 import * as fragments from "@rail-style/fragments"
 
+const trainCategory = {
+  trainCategory: fragments.enumOptional({
+    "OL": `londonUndergroundOrMetroService`,
+    "OU": `unadvertisedOrdinaryPassenger`,
+    "OO": `ordinaryPassenger`,
+    "OS": `staffTrain`,
+    "OW": `mixed`,
+    "XC": `channelTunnel`,
+    "XD": `sleeperEuropeNightServices`,
+    "XI": `international`,
+    "XR": `motorail`,
+    "XU": `unadvertisedExpress`,
+    "XX": `expressPassenger`,
+    "XZ": `sleeperDomestic`,
+    "BR": `replacementBus`,
+    "BS": `busWtt`,
+    "SS": `ship`,
+    "EE": `emptyCoachingStock`,
+    "EL": `emptyCoachingStockLondonUndergroundOrMetroService`,
+    "ES": `emptyCoachingStockAndStaff`,
+    "JJ": `postal`,
+    "PM": `postOfficeControlledParcels`,
+    "PP": `parcels`,
+    "PV": `emptyNpccs`,
+    "DD": `departmental`,
+    "DH": `civilEngineer`,
+    "DI": `mechanicalAndElectricalEngineer`,
+    "DQ": `stores`,
+    "DT": `test`,
+    "DY": `signalAndTelecommunicationsEngineer`,
+    "ZB": `locomotiveAndBrakeVan`,
+    "ZZ": `lightLocomotive`,
+    "J2": `railfreightDistributionAutomotiveComponents`,
+    "H2": `railfreightDistributionAutomotiveVehicles`,
+    "J3": `railfreightDistributionEdibleProductsUkContracts`,
+    "J4": `railfreightDistributionIndustrialMineralsUkContracts`,
+    "J5": `railfreightDistributionChemicalsUkContracts`,
+    "J6": `railfreightDistributionBuildingMaterialsUkContracts`,
+    "J8": `railfreightDistributionGeneralMerchandiseUkContracts`,
+    "H8": `railfreightDistributionEuropean`,
+    "J9": `railfreightDistributionFreightlinerContracts`,
+    "H9": `railfreightDistributionFreightlinerOther`,
+    "A0": `coalDistributive`,
+    "E0": `coalElectricityMgr`,
+    "B0": `coalOtherAndNuclear`,
+    "B1": `metals`,
+    "B4": `aggregates`,
+    "B5": `domesticAndIndustrialWaste`,
+    "B6": `buildingMaterialsTlf`,
+    "B7": `petroleumProducts`,
+    "H0": `railfreightDistributionEuropeanChannelTunnelMixedBusiness`,
+    "H1": `railfreightDistributionEuropeanChannelTunnelIntermodal`,
+    "H3": `railfreightDistributionEuropeanChannelTunnelAutomotive`,
+    "H4": `railfreightDistributionEuropeanChannelTunnelContractServices`,
+    "H5": `railfreightDistributionEuropeanChannelTunnelHaulmark`,
+    "H6": `railfreightDistributionEuropeanChannelTunnelJointVenture`
+  })
+}
+
 export default {
   headerRecord: [
     { recordIdentity: fragments.constantRequired(`HD`) },
@@ -92,7 +151,7 @@ export default {
         "5": `shortTermPlanBus`
       })
     },
-    { trainCategory: fragments.stringOptional(2) },
+    trainCategory,
     { trainIdentity: fragments.stringOptional(4) },
     { headcode: fragments.stringOptional(4) },
     { courseIndicator: fragments.stringRequired(1) },
@@ -166,7 +225,7 @@ export default {
   changesEnRoute: [
     { recordIdentity: fragments.constantRequired(`CR`) },
     { location: fragments.stringRequired(8) },
-    { trainCategory: fragments.stringOptional(2) },
+    trainCategory,
     { trainIdentity: fragments.stringOptional(4) },
     { headcode: fragments.stringOptional(4) },
     { courseIndicator: fragments.stringRequired(1) },

@@ -23,6 +23,71 @@ const run = (lineName, fragmentName, line, verifyParsed) => describe(`${lineName
   it(`is parsed`, () => verifyParsed(parsed))
 })
 
+const runTrainCategory = (lineName, fragmentName, lineFactory) => {
+  run(
+    lineName, fragmentName, lineFactory(`  `),
+    trainCategory => expect(trainCategory).toBeNull()
+  )
+  const runTrainRecordMapping = (from, to) => run(
+    lineName, fragmentName, lineFactory(from),
+    trainCategory => expect(trainCategory).toEqual(to)
+  )
+  runTrainRecordMapping(`OL`, `londonUndergroundOrMetroService`)
+  runTrainRecordMapping(`OU`, `unadvertisedOrdinaryPassenger`)
+  runTrainRecordMapping(`OO`, `ordinaryPassenger`)
+  runTrainRecordMapping(`OS`, `staffTrain`)
+  runTrainRecordMapping(`OW`, `mixed`)
+  runTrainRecordMapping(`XC`, `channelTunnel`)
+  runTrainRecordMapping(`XD`, `sleeperEuropeNightServices`)
+  runTrainRecordMapping(`XI`, `international`)
+  runTrainRecordMapping(`XR`, `motorail`)
+  runTrainRecordMapping(`XU`, `unadvertisedExpress`)
+  runTrainRecordMapping(`XX`, `expressPassenger`)
+  runTrainRecordMapping(`XZ`, `sleeperDomestic`)
+  runTrainRecordMapping(`BR`, `replacementBus`)
+  runTrainRecordMapping(`BS`, `busWtt`)
+  runTrainRecordMapping(`SS`, `ship`)
+  runTrainRecordMapping(`EE`, `emptyCoachingStock`)
+  runTrainRecordMapping(`EL`, `emptyCoachingStockLondonUndergroundOrMetroService`)
+  runTrainRecordMapping(`ES`, `emptyCoachingStockAndStaff`)
+  runTrainRecordMapping(`JJ`, `postal`)
+  runTrainRecordMapping(`PM`, `postOfficeControlledParcels`)
+  runTrainRecordMapping(`PP`, `parcels`)
+  runTrainRecordMapping(`PV`, `emptyNpccs`)
+  runTrainRecordMapping(`DD`, `departmental`)
+  runTrainRecordMapping(`DH`, `civilEngineer`)
+  runTrainRecordMapping(`DI`, `mechanicalAndElectricalEngineer`)
+  runTrainRecordMapping(`DQ`, `stores`)
+  runTrainRecordMapping(`DT`, `test`)
+  runTrainRecordMapping(`DY`, `signalAndTelecommunicationsEngineer`)
+  runTrainRecordMapping(`ZB`, `locomotiveAndBrakeVan`)
+  runTrainRecordMapping(`ZZ`, `lightLocomotive`)
+  runTrainRecordMapping(`J2`, `railfreightDistributionAutomotiveComponents`)
+  runTrainRecordMapping(`H2`, `railfreightDistributionAutomotiveVehicles`)
+  runTrainRecordMapping(`J3`, `railfreightDistributionEdibleProductsUkContracts`)
+  runTrainRecordMapping(`J4`, `railfreightDistributionIndustrialMineralsUkContracts`)
+  runTrainRecordMapping(`J5`, `railfreightDistributionChemicalsUkContracts`)
+  runTrainRecordMapping(`J6`, `railfreightDistributionBuildingMaterialsUkContracts`)
+  runTrainRecordMapping(`J8`, `railfreightDistributionGeneralMerchandiseUkContracts`)
+  runTrainRecordMapping(`H8`, `railfreightDistributionEuropean`)
+  runTrainRecordMapping(`J9`, `railfreightDistributionFreightlinerContracts`)
+  runTrainRecordMapping(`H9`, `railfreightDistributionFreightlinerOther`)
+  runTrainRecordMapping(`A0`, `coalDistributive`)
+  runTrainRecordMapping(`E0`, `coalElectricityMgr`)
+  runTrainRecordMapping(`B0`, `coalOtherAndNuclear`)
+  runTrainRecordMapping(`B1`, `metals`)
+  runTrainRecordMapping(`B4`, `aggregates`)
+  runTrainRecordMapping(`B5`, `domesticAndIndustrialWaste`)
+  runTrainRecordMapping(`B6`, `buildingMaterialsTlf`)
+  runTrainRecordMapping(`B7`, `petroleumProducts`)
+  runTrainRecordMapping(`H0`, `railfreightDistributionEuropeanChannelTunnelMixedBusiness`)
+  runTrainRecordMapping(`H1`, `railfreightDistributionEuropeanChannelTunnelIntermodal`)
+  runTrainRecordMapping(`H3`, `railfreightDistributionEuropeanChannelTunnelAutomotive`)
+  runTrainRecordMapping(`H4`, `railfreightDistributionEuropeanChannelTunnelContractServices`)
+  runTrainRecordMapping(`H5`, `railfreightDistributionEuropeanChannelTunnelHaulmark`)
+  runTrainRecordMapping(`H6`, `railfreightDistributionEuropeanChannelTunnelJointVenture`)
+}
+
 run(
   `headerRecord`, `recordIdentity`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
@@ -359,16 +424,10 @@ run(
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanBus`)
 )
 
-run(
-  `basicSchedule`, `trainCategory`,
-  `BSNTTRUID180620                         C                                      C`,
-  trainCategory => expect(trainCategory).toBeNull()
-)
-
-run(
-  `basicSchedule`, `trainCategory`,
-  `BSNTTRUID180620               QR        C                                      C`,
-  trainCategory => expect(trainCategory).toEqual(`QR`)
+runTrainCategory(
+  `basicSchedule`,
+  `trainCategory`,
+  code => `BSNTTRUID180620               ${code}        C                                      C`
 )
 
 run(
@@ -990,16 +1049,10 @@ run(
   location => expect(location).toEqual(`LOCATION`)
 )
 
-run(
-  `changesEnRoute`, `trainCategory`,
-  `CRLOCATION          C                                                           `,
-  trainCategory => expect(trainCategory).toBeNull()
-)
-
-run(
-  `changesEnRoute`, `trainCategory`,
-  `CRLOCATIONTC        C                                                           `,
-  trainCategory => expect(trainCategory).toEqual(`TC`)
+runTrainCategory(
+  `changesEnRoute`,
+  `trainCategory`,
+  code => `CRLOCATION${code}        C                                                           `
 )
 
 run(
