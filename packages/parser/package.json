@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/parser",
   "description": "\"SAX-like\" streaming parsing of fixed-width text files.",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -37,6 +37,6 @@
     "instrument": false
   },
   "peerDependencies": {
-    "@rail-style/fragments": "0.0.10"
+    "@rail-style/fragments": "0.0.11"
   }
 }
