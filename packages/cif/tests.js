@@ -168,469 +168,469 @@ run(
 
 run(
   `basicSchedule`, `recordIdentity`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   recordIdentity => expect(recordIdentity).toEqual(`BS`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   transactionType => expect(transactionType).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSDTTRUID180620                         C                                      C`,
+  `BSDTTRUID180620                         1                                      C`,
   transactionType => expect(transactionType).toEqual(`delete`)
 )
 
 run(
   `basicSchedule`, `transactionType`,
-  `BSRTTRUID180620                         C                                      C`,
+  `BSRTTRUID180620                         1                                      C`,
   transactionType => expect(transactionType).toEqual(`revise`)
 )
 
 run(
   `basicSchedule`, `trainUid`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   trainUid => expect(trainUid).toEqual(`TTRUID`)
 )
 
 run(
   `basicSchedule`, `dateRunsFrom`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   dateRunsFrom => expect(dateRunsFrom).toBeSameMoment(moment(`2018-06-20T00:00:00+01:00`))
 )
 
 run(
   `basicSchedule`, `dateRunsTo`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   dateRunsTo => expect(dateRunsTo).toBeNull()
 )
 
 run(
   `basicSchedule`, `dateRunsTo`,
-  `BSNTTRUID180620180910                   C                                      C`,
+  `BSNTTRUID180620180910                   1                                      C`,
   dateRunsTo => expect(dateRunsTo).toBeSameMoment(moment(`2018-09-10T00:00:00+01:00`))
 )
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunMonday => expect(daysRunMonday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID180620      0                  C                                      C`,
+  `BSNTTRUID180620      0                  1                                      C`,
   daysRunMonday => expect(daysRunMonday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunMonday`,
-  `BSNTTRUID180620      1                  C                                      C`,
+  `BSNTTRUID180620      1                  1                                      C`,
   daysRunMonday => expect(daysRunMonday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620       0                 C                                      C`,
+  `BSNTTRUID180620       0                 1                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunTuesday`,
-  `BSNTTRUID180620       1                 C                                      C`,
+  `BSNTTRUID180620       1                 1                                      C`,
   daysRunTuesday => expect(daysRunTuesday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620        0                C                                      C`,
+  `BSNTTRUID180620        0                1                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunWednesday`,
-  `BSNTTRUID180620        1                C                                      C`,
+  `BSNTTRUID180620        1                1                                      C`,
   daysRunWednesday => expect(daysRunWednesday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunThursday => expect(daysRunThursday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620         0               C                                      C`,
+  `BSNTTRUID180620         0               1                                      C`,
   daysRunThursday => expect(daysRunThursday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunThursday`,
-  `BSNTTRUID180620         1               C                                      C`,
+  `BSNTTRUID180620         1               1                                      C`,
   daysRunThursday => expect(daysRunThursday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunFriday => expect(daysRunFriday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620          0              C                                      C`,
+  `BSNTTRUID180620          0              1                                      C`,
   daysRunFriday => expect(daysRunFriday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunFriday`,
-  `BSNTTRUID180620          1              C                                      C`,
+  `BSNTTRUID180620          1              1                                      C`,
   daysRunFriday => expect(daysRunFriday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620           0             C                                      C`,
+  `BSNTTRUID180620           0             1                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunSaturday`,
-  `BSNTTRUID180620           1             C                                      C`,
+  `BSNTTRUID180620           1             1                                      C`,
   daysRunSaturday => expect(daysRunSaturday).toBe(true)
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   daysRunSunday => expect(daysRunSunday).toBeNull()
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620            0            C                                      C`,
+  `BSNTTRUID180620            0            1                                      C`,
   daysRunSunday => expect(daysRunSunday).toBe(false)
 )
 
 run(
   `basicSchedule`, `daysRunSunday`,
-  `BSNTTRUID180620            1            C                                      C`,
+  `BSNTTRUID180620            1            1                                      C`,
   daysRunSunday => expect(daysRunSunday).toBe(true)
 )
 
 run(
   `basicSchedule`, `bankHolidayRunning`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   bankHolidayRunning => expect(bankHolidayRunning).toBeNull()
 )
 
 run(
   `basicSchedule`, `bankHolidayRunning`,
-  `BSNTTRUID180620             X           C                                      C`,
+  `BSNTTRUID180620             X           1                                      C`,
   bankHolidayRunning => expect(bankHolidayRunning).toEqual(`doesNotRunOnBankHolidayMondays`)
 )
 
 run(
   `basicSchedule`, `bankHolidayRunning`,
-  `BSNTTRUID180620             G           C                                      C`,
+  `BSNTTRUID180620             G           1                                      C`,
   bankHolidayRunning => expect(bankHolidayRunning).toEqual(`doesNotRunOnGlasgowBankHolidays`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   trainStatus => expect(trainStatus).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              B          C                                      C`,
+  `BSNTTRUID180620              B          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`permanentBus`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              F          C                                      C`,
+  `BSNTTRUID180620              F          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`permanentFreight`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              P          C                                      C`,
+  `BSNTTRUID180620              P          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`permanentPassengerAndParcels`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              S          C                                      C`,
+  `BSNTTRUID180620              S          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`permanentShip`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              T          C                                      C`,
+  `BSNTTRUID180620              T          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`permanentTrip`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              1          C                                      C`,
+  `BSNTTRUID180620              1          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanPassengerAndParcels`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              2          C                                      C`,
+  `BSNTTRUID180620              2          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanFreight`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              3          C                                      C`,
+  `BSNTTRUID180620              3          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanTrip`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              4          C                                      C`,
+  `BSNTTRUID180620              4          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanShip`)
 )
 
 run(
   `basicSchedule`, `trainStatus`,
-  `BSNTTRUID180620              5          C                                      C`,
+  `BSNTTRUID180620              5          1                                      C`,
   trainStatus => expect(trainStatus).toEqual(`shortTermPlanBus`)
 )
 
 runTrainCategory(
   `basicSchedule`,
   `trainCategory`,
-  code => `BSNTTRUID180620               ${code}        C                                      C`
+  code => `BSNTTRUID180620               ${code}        1                                      C`
 )
 
 run(
   `basicSchedule`, `trainIdentity`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   trainIdentity => expect(trainIdentity).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainIdentity`,
-  `BSNTTRUID180620                 QREB    C                                      C`,
+  `BSNTTRUID180620                 QREB    1                                      C`,
   trainIdentity => expect(trainIdentity).toEqual(`QREB`)
 )
 
 run(
   `basicSchedule`, `headcode`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   headcode => expect(headcode).toBeNull()
 )
 
 run(
   `basicSchedule`, `headcode`,
-  `BSNTTRUID180620                     QREBC                                      C`,
+  `BSNTTRUID180620                     QREB1                                      C`,
   headcode => expect(headcode).toEqual(`QREB`)
 )
 
 run(
   `basicSchedule`, `courseIndicator`,
-  `BSNTTRUID180620                         C                                      C`,
-  courseIndicator => expect(courseIndicator).toEqual(`C`)
+  `BSNTTRUID180620                         1                                      C`,
+  courseIndicator => expect(courseIndicator).toEqual(`1`)
 )
 
 run(
   `basicSchedule`, `profitCentreCodeTrainServiceCode`,
-  `BSNTTRUID180620                         C73628191                              C`,
+  `BSNTTRUID180620                         173628191                              C`,
   profitCentreCodeTrainServiceCode => expect(profitCentreCodeTrainServiceCode).toEqual(73628191)
 )
 
 run(
   `basicSchedule`, `businessSector`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   businessSector => expect(businessSector).toBeNull()
 )
 
 run(
   `basicSchedule`, `businessSector`,
-  `BSNTTRUID180620                         C        Q                             C`,
+  `BSNTTRUID180620                         1        Q                             C`,
   businessSector => expect(businessSector).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `powerType`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   powerType => expect(powerType).toBeNull()
 )
 
 run(
   `basicSchedule`, `powerType`,
-  `BSNTTRUID180620                         C         QBE                          C`,
+  `BSNTTRUID180620                         1         QBE                          C`,
   powerType => expect(powerType).toEqual(`QBE`)
 )
 
 run(
   `basicSchedule`, `timingLoad`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   timingLoad => expect(timingLoad).toBeNull()
 )
 
 run(
   `basicSchedule`, `timingLoad`,
-  `BSNTTRUID180620                         C            QBRE                      C`,
+  `BSNTTRUID180620                         1            QBRE                      C`,
   timingLoad => expect(timingLoad).toEqual(`QBRE`)
 )
 
 run(
   `basicSchedule`, `speed`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   speed => expect(speed).toBeNull()
 )
 
 run(
   `basicSchedule`, `speed`,
-  `BSNTTRUID180620                         C                731                   C`,
+  `BSNTTRUID180620                         1                731                   C`,
   speed => expect(speed).toEqual(731)
 )
 
 run(
   `basicSchedule`, `operatingChars`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   operatingChars => expect(operatingChars).toBeNull()
 )
 
 run(
   `basicSchedule`, `operatingChars`,
-  `BSNTTRUID180620                         C                   TESTOC             C`,
+  `BSNTTRUID180620                         1                   TESTOC             C`,
   operatingChars => expect(operatingChars).toEqual(`TESTOC`)
 )
 
 run(
   `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   trainClass => expect(trainClass).toBeNull()
 )
 
 run(
   `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620                         C                         Q            C`,
+  `BSNTTRUID180620                         1                         Q            C`,
   trainClass => expect(trainClass).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   sleepers => expect(sleepers).toBeNull()
 )
 
 run(
   `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620                         C                          Q           C`,
+  `BSNTTRUID180620                         1                          Q           C`,
   sleepers => expect(sleepers).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `reservations`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   reservations => expect(reservations).toBeNull()
 )
 
 run(
   `basicSchedule`, `reservations`,
-  `BSNTTRUID180620                         C                           Q          C`,
+  `BSNTTRUID180620                         1                           Q          C`,
   reservations => expect(reservations).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `connectIndicator`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   connectIndicator => expect(connectIndicator).toBeNull()
 )
 
 run(
   `basicSchedule`, `connectIndicator`,
-  `BSNTTRUID180620                         C                            Q         C`,
+  `BSNTTRUID180620                         1                            Q         C`,
   connectIndicator => expect(connectIndicator).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   cateringCode => expect(cateringCode).toBeNull()
 )
 
 run(
   `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620                         C                             QBER     C`,
+  `BSNTTRUID180620                         1                             QBER     C`,
   cateringCode => expect(cateringCode).toEqual(`QBER`)
 )
 
 run(
   `basicSchedule`, `serviceBranding`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   serviceBranding => expect(serviceBranding).toBeNull()
 )
 
 run(
   `basicSchedule`, `serviceBranding`,
-  `BSNTTRUID180620                         C                                 QBER C`,
+  `BSNTTRUID180620                         1                                 QBER C`,
   serviceBranding => expect(serviceBranding).toEqual(`QBER`)
 )
 
 run(
   `basicSchedule`, `spare`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   spare => expect(spare).toBeNull()
 )
 
 run(
   `basicSchedule`, `spare`,
-  `BSNTTRUID180620                         C                                     QC`,
+  `BSNTTRUID180620                         1                                     QC`,
   spare => expect(spare).toEqual(`Q`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620                         C                                      C`,
+  `BSNTTRUID180620                         1                                      C`,
   stpIndicator => expect(stpIndicator).toEqual(`cancellation`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620                         C                                      N`,
+  `BSNTTRUID180620                         1                                      N`,
   stpIndicator => expect(stpIndicator).toEqual(`new`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620                         C                                      O`,
+  `BSNTTRUID180620                         1                                      O`,
   stpIndicator => expect(stpIndicator).toEqual(`overlay`)
 )
 
 run(
   `basicSchedule`, `stpIndicator`,
-  `BSNTTRUID180620                         C                                      P`,
+  `BSNTTRUID180620                         1                                      P`,
   stpIndicator => expect(stpIndicator).toEqual(`permanent`)
 )
 
@@ -1039,247 +1039,247 @@ run(
 
 run(
   `changesEnRoute`, `recordIdentity`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   recordIdentity => expect(recordIdentity).toEqual(`CR`)
 )
 
 run(
   `changesEnRoute`, `location`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   location => expect(location).toEqual(`LOCATION`)
 )
 
 runTrainCategory(
   `changesEnRoute`,
   `trainCategory`,
-  code => `CRLOCATION${code}        C                                                           `
+  code => `CRLOCATION${code}        1                                                           `
 )
 
 run(
   `changesEnRoute`, `trainIdentity`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   trainIdentity => expect(trainIdentity).toBeNull()
 )
 
 run(
   `changesEnRoute`, `trainIdentity`,
-  `CRLOCATION  TRID    C                                                           `,
+  `CRLOCATION  TRID    1                                                           `,
   trainIdentity => expect(trainIdentity).toEqual(`TRID`)
 )
 
 run(
   `changesEnRoute`, `headcode`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   headcode => expect(headcode).toBeNull()
 )
 
 run(
   `changesEnRoute`, `headcode`,
-  `CRLOCATION      HDCDC                                                           `,
+  `CRLOCATION      HDCD1                                                           `,
   headcode => expect(headcode).toEqual(`HDCD`)
 )
 
 run(
   `changesEnRoute`, `courseIndicator`,
-  `CRLOCATION          C                                                           `,
-  courseIndicator => expect(courseIndicator).toEqual(`C`)
+  `CRLOCATION          1                                                           `,
+  courseIndicator => expect(courseIndicator).toEqual(`1`)
 )
 
 run(
   `changesEnRoute`, `profitCentreCodeTrainServiceCode`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   profitCentreCodeTrainServiceCode => expect(profitCentreCodeTrainServiceCode).toBeNull()
 )
 
 run(
   `changesEnRoute`, `profitCentreCodeTrainServiceCode`,
-  `CRLOCATION          C83749632                                                   `,
+  `CRLOCATION          183749632                                                   `,
   profitCentreCodeTrainServiceCode => expect(profitCentreCodeTrainServiceCode).toEqual(83749632)
 )
 
 run(
   `changesEnRoute`, `businessSector`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   businessSector => expect(businessSector).toBeNull()
 )
 
 run(
   `changesEnRoute`, `businessSector`,
-  `CRLOCATION          C        Q                                                  `,
+  `CRLOCATION          1        Q                                                  `,
   businessSector => expect(businessSector).toEqual(`Q`)
 )
 
 run(
   `changesEnRoute`, `powerType`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   powerType => expect(powerType).toBeNull()
 )
 
 run(
   `changesEnRoute`, `powerType`,
-  `CRLOCATION          C         QBE                                               `,
+  `CRLOCATION          1         QBE                                               `,
   powerType => expect(powerType).toEqual(`QBE`)
 )
 
 run(
   `changesEnRoute`, `timingLoad`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   timingLoad => expect(timingLoad).toBeNull()
 )
 
 run(
   `changesEnRoute`, `timingLoad`,
-  `CRLOCATION          C            TILD                                           `,
+  `CRLOCATION          1            TILD                                           `,
   timingLoad => expect(timingLoad).toEqual(`TILD`)
 )
 
 run(
   `changesEnRoute`, `speed`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   speed => expect(speed).toBeNull()
 )
 
 run(
   `changesEnRoute`, `speed`,
-  `CRLOCATION          C                381                                        `,
+  `CRLOCATION          1                381                                        `,
   speed => expect(speed).toEqual(381)
 )
 
 run(
   `changesEnRoute`, `operatingChars`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   operatingChars => expect(operatingChars).toBeNull()
 )
 
 run(
   `changesEnRoute`, `operatingChars`,
-  `CRLOCATION          C                   OPERAT                                  `,
+  `CRLOCATION          1                   OPERAT                                  `,
   operatingChars => expect(operatingChars).toEqual(`OPERAT`)
 )
 
 run(
   `changesEnRoute`, `trainClass`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   trainClass => expect(trainClass).toBeNull()
 )
 
 run(
   `changesEnRoute`, `trainClass`,
-  `CRLOCATION          C                         Q                                 `,
+  `CRLOCATION          1                         Q                                 `,
   trainClass => expect(trainClass).toEqual(`Q`)
 )
 
 run(
   `changesEnRoute`, `trainClass`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   trainClass => expect(trainClass).toBeNull()
 )
 
 run(
   `changesEnRoute`, `sleepers`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   sleepers => expect(sleepers).toBeNull()
 )
 
 run(
   `changesEnRoute`, `sleepers`,
-  `CRLOCATION          C                          Q                                `,
+  `CRLOCATION          1                          Q                                `,
   sleepers => expect(sleepers).toEqual(`Q`)
 )
 
 run(
   `changesEnRoute`, `reservations`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   reservations => expect(reservations).toBeNull()
 )
 
 run(
   `changesEnRoute`, `reservations`,
-  `CRLOCATION          C                           Q                               `,
+  `CRLOCATION          1                           Q                               `,
   reservations => expect(reservations).toEqual(`Q`)
 )
 
 run(
   `changesEnRoute`, `connectIndicator`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   connectIndicator => expect(connectIndicator).toBeNull()
 )
 
 run(
   `changesEnRoute`, `connectIndicator`,
-  `CRLOCATION          C                            Q                              `,
+  `CRLOCATION          1                            Q                              `,
   connectIndicator => expect(connectIndicator).toEqual(`Q`)
 )
 
 run(
   `changesEnRoute`, `cateringCode`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   cateringCode => expect(cateringCode).toBeNull()
 )
 
 run(
   `changesEnRoute`, `cateringCode`,
-  `CRLOCATION          C                             CATE                          `,
+  `CRLOCATION          1                             CATE                          `,
   cateringCode => expect(cateringCode).toEqual(`CATE`)
 )
 
 run(
   `changesEnRoute`, `serviceBranding`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   serviceBranding => expect(serviceBranding).toBeNull()
 )
 
 run(
   `changesEnRoute`, `serviceBranding`,
-  `CRLOCATION          C                                 SVBR                      `,
+  `CRLOCATION          1                                 SVBR                      `,
   serviceBranding => expect(serviceBranding).toEqual(`SVBR`)
 )
 
 run(
   `changesEnRoute`, `tractionClass`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   tractionClass => expect(tractionClass).toBeNull()
 )
 
 run(
   `changesEnRoute`, `tractionClass`,
-  `CRLOCATION          C                                     TRCL                  `,
+  `CRLOCATION          1                                     TRCL                  `,
   tractionClass => expect(tractionClass).toEqual(`TRCL`)
 )
 
 run(
   `changesEnRoute`, `uicCode`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   uicCode => expect(uicCode).toBeNull()
 )
 
 run(
   `changesEnRoute`, `uicCode`,
-  `CRLOCATION          C                                         UICCO             `,
+  `CRLOCATION          1                                         UICCO             `,
   uicCode => expect(uicCode).toEqual(`UICCO`)
 )
 
 run(
   `changesEnRoute`, `retailServiceId`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   retailServiceId => expect(retailServiceId).toBeNull()
 )
 
 run(
   `changesEnRoute`, `retailServiceId`,
-  `CRLOCATION          C                                              HQ826410     `,
+  `CRLOCATION          1                                              HQ826410     `,
   retailServiceId => expect(retailServiceId).toEqual(`HQ826410`)
 )
 
 run(
   `changesEnRoute`, `spare`,
-  `CRLOCATION          C                                                           `,
+  `CRLOCATION          1                                                           `,
   spare => expect(spare).toBeNull()
 )
 
 run(
   `changesEnRoute`, `spare`,
-  `CRLOCATION          C                                                      SPARE`,
+  `CRLOCATION          1                                                      SPARE`,
   spare => expect(spare).toEqual(`SPARE`)
 )
 
