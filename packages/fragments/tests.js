@@ -1142,3 +1142,50 @@ describe(`unsignedRequired`, () => {
   runNotMatching(`too many partial left`, fragments.unsignedRequired(4), `73   `)
   runNotMatching(`too many partial right`, fragments.unsignedRequired(4), `   73`)
 })
+
+describe(`dayFlags`, () => {
+  runMatching(
+    `none set`, fragments.dayFlags, `0000000`,
+    parsed => expect(parsed).toEqual([])
+  )
+  runMatching(
+    `monday`, fragments.dayFlags, `1000000`,
+    parsed => expect(parsed).toEqual([`monday`])
+  )
+  runMatching(
+    `tuesday`, fragments.dayFlags, `0100000`,
+    parsed => expect(parsed).toEqual([`tuesday`])
+  )
+  runMatching(
+    `wednesday`, fragments.dayFlags, `0010000`,
+    parsed => expect(parsed).toEqual([`wednesday`])
+  )
+  runMatching(
+    `thursday`, fragments.dayFlags, `0001000`,
+    parsed => expect(parsed).toEqual([`thursday`])
+  )
+  runMatching(
+    `friday`, fragments.dayFlags, `0000100`,
+    parsed => expect(parsed).toEqual([`friday`])
+  )
+  runMatching(
+    `saturday`, fragments.dayFlags, `0000010`,
+    parsed => expect(parsed).toEqual([`saturday`])
+  )
+  runMatching(
+    `sunday`, fragments.dayFlags, `0000001`,
+    parsed => expect(parsed).toEqual([`sunday`])
+  )
+  runMatching(
+    `all set`, fragments.dayFlags, `1111111`,
+    parsed => expect(parsed).toEqual([
+      `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`,
+      `sunday`
+    ])
+  )
+  runNotMatching(`too long`, fragments.dayFlags, `00000000`)
+  runNotMatching(`too short`, fragments.dayFlags, `000000`)
+  runNotMatching(`invalid digit`, fragments.dayFlags, `0005000`)
+  runNotMatching(`non numeric`, fragments.dayFlags, `000a000`)
+  runNotMatching(`spaces`, fragments.dayFlags, `       `)
+})

@@ -217,3 +217,10 @@ export const unsignedRequired = length => {
     parse: parseInt
   }
 }
+
+export const dayFlags = ({
+  regex: `[01]{7}`,
+  parse: text => [
+    `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`
+  ].filter((day, index) => text.charAt(index) == 1)
+})

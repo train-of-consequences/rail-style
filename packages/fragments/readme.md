@@ -59,3 +59,11 @@ Fragments which can be used to describe a fixed-width format.
 | -                                              | `     `        | null                 | null                      |
 | hhmmhRequired                                  | `1637 `        | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
 | hhmmhRequired                                  | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
+| dayFlags                                       | 0000000        | Array of String      | []                        |
+| -                                              | 1000000        | Array of String      | [`monday`]                |
+| -                                              | 0100000        | Array of String      | [`tuesday`]               |
+| -                                              | 0010000        | Array of String      | [`wednesday`]             |
+| -                                              | 0001000        | Array of String      | [`thursday`]              |
+| -                                              | 0000100        | Array of String      | [`friday`]                |
+| -                                              | 0000010        | Array of String      | [`saturday`]              |
+| -                                              | 0000001        | Array of String      | [`sunday`]                |
