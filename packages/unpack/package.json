@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/unpack",
   "description": "A set of helper functions which reverse packings performed by the @rail-style/pack module.",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "repository": {
     "type": "git",

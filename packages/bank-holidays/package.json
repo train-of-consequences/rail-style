@@ -1,7 +1,7 @@
 {
   "name": "@rail-style/bank-holidays",
   "description": "A copy of the [bank holidays JSON provided by gov.uk](https://www.gov.uk/bank-holidays.json). Contains public sector information licensed under the Open Government Licence v3.0.",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "repository": {
     "type": "git",
