@@ -107,6 +107,25 @@ const runPowerType = (lineName, fragmentName, lineFactory) => {
   runPowerTypeMapping(`HST`, `highSpeedTrain`)
 }
 
+const runSleepers = (lineName, fragmentName, lineFactory) => {
+  run(
+    lineName, fragmentName, lineFactory(` `),
+    sleepers => expect(sleepers).toEqual([])
+  )
+  run(
+    lineName, fragmentName, lineFactory(`F`),
+    sleepers => expect(sleepers).toEqual([`firstClass`])
+  )
+  run(
+    lineName, fragmentName, lineFactory(`S`),
+    sleepers => expect(sleepers).toEqual([`standardClass`])
+  )
+  run(
+    lineName, fragmentName, lineFactory(`B`),
+    sleepers => expect(sleepers).toEqual([`standardClass`, `firstClass`])
+  )
+}
+
 run(
   `headerRecord`, `recordIdentity`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
@@ -550,16 +569,9 @@ run(
   trainClass => expect(trainClass).toEqual(`Q`)
 )
 
-run(
+runSleepers(
   `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620                         1                                      C`,
-  sleepers => expect(sleepers).toBeNull()
-)
-
-run(
-  `basicSchedule`, `sleepers`,
-  `BSNTTRUID180620                         1                          Q           C`,
-  sleepers => expect(sleepers).toEqual(`Q`)
+  code => `BSNTTRUID180620                         1                          ${code}           C`
 )
 
 run(
@@ -1180,16 +1192,9 @@ run(
   trainClass => expect(trainClass).toBeNull()
 )
 
-run(
+runSleepers(
   `changesEnRoute`, `sleepers`,
-  `CRLOCATION          1                                                           `,
-  sleepers => expect(sleepers).toBeNull()
-)
-
-run(
-  `changesEnRoute`, `sleepers`,
-  `CRLOCATION          1                          Q                                `,
-  sleepers => expect(sleepers).toEqual(`Q`)
+  code => `CRLOCATION          1                          ${code}                                `
 )
 
 run(

@@ -72,6 +72,15 @@ const powerType = {
   })
 }
 
+const sleepers = {
+  sleepers: fragments.enumRequired({
+    " ": [],
+    "B": [`standardClass`, `firstClass`],
+    "F": [`firstClass`],
+    "S": [`standardClass`]
+  })
+}
+
 export default {
   headerRecord: [
     { recordIdentity: fragments.constantRequired(`HD`) },
@@ -175,7 +184,7 @@ export default {
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },
     { trainClass: fragments.stringOptional(1) },
-    { sleepers: fragments.stringOptional(1) },
+    sleepers,
     { reservations: fragments.stringOptional(1) },
     { connectIndicator: fragments.stringOptional(1) },
     { cateringCode: fragments.stringOptional(4) },
@@ -249,7 +258,7 @@ export default {
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },
     { trainClass: fragments.stringOptional(1) },
-    { sleepers: fragments.stringOptional(1) },
+    sleepers,
     { reservations: fragments.stringOptional(1) },
     { connectIndicator: fragments.stringOptional(1) },
     { cateringCode: fragments.stringOptional(4) },
