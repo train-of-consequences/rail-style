@@ -36,3 +36,16 @@ export const crs = crs => {
     return output + 1
   }
 }
+
+export const trainUid = trainUid => {
+  if (trainUid == null) {
+    return 0
+  } else {
+    let output = trainUid.charCodeAt(0) - charCodeA
+    for (let i = 1; i < 6; i++) {
+      output *= 10
+      output += trainUid.charCodeAt(i) - charCode0
+    }
+    return output + 1
+  }
+}

@@ -14,3 +14,8 @@ run(`crs null`, pack.crs, null, 0)
 run(`crs minimum`, pack.crs, `AAA`, 1)
 run(`crs maximum`, pack.crs, `999`, 46656)
 run(`crs random`, pack.crs, `9DP`, 45484)
+
+run(`trainUid null`, pack.trainUid, null, 0)
+run(`trainUid minimum`, pack.trainUid, `A00000`, 1)
+run(`trainUid minimum`, pack.trainUid, `Z99999`, 2600000)
+run(`trainUid random`, pack.trainUid, `C27935`, 227936)

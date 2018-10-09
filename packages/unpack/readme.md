@@ -7,3 +7,4 @@ A set of helper functions which reverse packings performed by the
 |----------|-------------|-------------|
 | tiploc   | 1           | 7           |
 | crs      | 3           | 3           |
+| trainUid | 6           | 6           |

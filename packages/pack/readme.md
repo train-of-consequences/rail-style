@@ -9,3 +9,4 @@ A zero value can be taken to mean "null".
 |----------|----------------|---------------|
 | tiploc   | 10,460,353,204 | 34            |
 | crs      | 46,657         | 16            |
+| trainUid | 2,600,001      | 22            |

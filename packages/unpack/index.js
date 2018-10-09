@@ -43,3 +43,22 @@ export const crs = crs => {
 
   return output
 }
+
+export const trainUid = trainUid => {
+  if (!trainUid) {
+    return null
+  }
+
+  let output = ``
+
+  trainUid--
+
+  for (let i = 0; i < 5; i++) {
+    const thisCharacter = trainUid % 10
+    trainUid = (trainUid - thisCharacter) / 10
+    output = String.fromCharCode(thisCharacter + charCode0) + output
+  }
+
+  output = String.fromCharCode(trainUid + charCodeA) + output
+  return output
+}
