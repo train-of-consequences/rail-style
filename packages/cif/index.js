@@ -72,6 +72,14 @@ const powerType = {
   })
 }
 
+const trainClass = {
+  trainClass: fragments.enumRequired({
+    " ": [`standardClass`, `firstClass`],
+    "B": [`standardClass`, `firstClass`],
+    "S": [`standardClass`]
+  })
+}
+
 const sleepers = {
   sleepers: fragments.enumRequired({
     " ": [],
@@ -204,7 +212,7 @@ export default {
     { timingLoad: fragments.stringOptional(4) },
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },
-    { trainClass: fragments.stringOptional(1) },
+    trainClass,
     sleepers,
     reservations,
     { connectIndicator: fragments.stringOptional(1) },
@@ -278,7 +286,7 @@ export default {
     { timingLoad: fragments.stringOptional(4) },
     { speed: fragments.unsignedOptional(3) },
     { operatingChars: fragments.stringOptional(6) },
-    { trainClass: fragments.stringOptional(1) },
+    trainClass,
     sleepers,
     reservations,
     { connectIndicator: fragments.stringOptional(1) },

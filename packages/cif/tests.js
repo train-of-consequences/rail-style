@@ -107,6 +107,16 @@ const runPowerType = (lineName, fragmentName, lineFactory) => {
   runPowerTypeMapping(`HST`, `highSpeedTrain`)
 }
 
+const runTrainClass = (lineName, fragmentName, lineFactory) => {
+  const runTrainClass = (from, to) => run(
+    lineName, fragmentName, lineFactory(from),
+    trainClass => expect(trainClass).toEqual(to)
+  )
+  runTrainClass(` `, [`standardClass`, `firstClass`])
+  runTrainClass(`B`, [`standardClass`, `firstClass`])
+  runTrainClass(`S`, [`standardClass`])
+}
+
 const runSleepers = (lineName, fragmentName, lineFactory) => {
   run(
     lineName, fragmentName, lineFactory(` `),
@@ -596,16 +606,9 @@ run(
   operatingChars => expect(operatingChars).toEqual(`TESTOC`)
 )
 
-run(
+runTrainClass(
   `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620                         1                                      C`,
-  trainClass => expect(trainClass).toBeNull()
-)
-
-run(
-  `basicSchedule`, `trainClass`,
-  `BSNTTRUID180620                         1                         Q            C`,
-  trainClass => expect(trainClass).toEqual(`Q`)
+  code => `BSNTTRUID180620                         1                         ${code}            C`
 )
 
 runSleepers(
@@ -1199,22 +1202,9 @@ run(
   operatingChars => expect(operatingChars).toEqual(`OPERAT`)
 )
 
-run(
+runTrainClass(
   `changesEnRoute`, `trainClass`,
-  `CRLOCATION          1                                                           `,
-  trainClass => expect(trainClass).toBeNull()
-)
-
-run(
-  `changesEnRoute`, `trainClass`,
-  `CRLOCATION          1                         Q                                 `,
-  trainClass => expect(trainClass).toEqual(`Q`)
-)
-
-run(
-  `changesEnRoute`, `trainClass`,
-  `CRLOCATION          1                                                           `,
-  trainClass => expect(trainClass).toBeNull()
+  code => `CRLOCATION          1                         ${code}                                 `
 )
 
 runSleepers(
