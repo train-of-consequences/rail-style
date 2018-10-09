@@ -90,6 +90,18 @@ const reservations = {
   })
 }
 
+const cateringCode = {
+  cateringCode: fragments.flags(4, {
+    "C": `buffetService`,
+    "F": `resturauntCarAvailableForFirstClassPassengers`,
+    "H": `hotFoodAvailable`,
+    "M": `mealIncludedForFirstClassPassengers`,
+    "P": `wheelchairOnlyReservations`,
+    "R": `resturaunt`,
+    "T": `trolleyService`
+  })
+}
+
 export default {
   headerRecord: [
     { recordIdentity: fragments.constantRequired(`HD`) },
@@ -196,7 +208,7 @@ export default {
     sleepers,
     reservations,
     { connectIndicator: fragments.stringOptional(1) },
-    { cateringCode: fragments.stringOptional(4) },
+    cateringCode,
     { serviceBranding: fragments.stringOptional(4) },
     { spare: fragments.stringOptional(1) },
     {
@@ -270,7 +282,7 @@ export default {
     sleepers,
     reservations,
     { connectIndicator: fragments.stringOptional(1) },
-    { cateringCode: fragments.stringOptional(4) },
+    cateringCode,
     { serviceBranding: fragments.stringOptional(4) },
     { tractionClass: fragments.stringOptional(4) },
     { uicCode: fragments.stringOptional(5) },

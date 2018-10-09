@@ -141,6 +141,30 @@ const runReservations = (lineName, fragmentName, lineFactory) => {
   runReservation(`E`, `bicyclesEssential`)
 }
 
+const runCateringCode = (lineName, fragmentName, lineFactory) => {
+  run(
+    lineName, fragmentName, lineFactory(`    `),
+    cateringCode => expect(cateringCode).toEqual([])
+  )
+  const runCateringCode = (from, to) => {
+    run(
+      lineName, fragmentName, lineFactory(`${from}   `),
+      cateringCode => expect(cateringCode).toEqual([to])
+    )
+    run(
+      lineName, fragmentName, lineFactory(`   ${from}`),
+      cateringCode => expect(cateringCode).toEqual([to])
+    )
+  }
+  runCateringCode(`C`, `buffetService`)
+  runCateringCode(`F`, `resturauntCarAvailableForFirstClassPassengers`)
+  runCateringCode(`H`, `hotFoodAvailable`)
+  runCateringCode(`M`, `mealIncludedForFirstClassPassengers`)
+  runCateringCode(`P`, `wheelchairOnlyReservations`)
+  runCateringCode(`R`, `resturaunt`)
+  runCateringCode(`T`, `trolleyService`)
+}
+
 run(
   `headerRecord`, `recordIdentity`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
@@ -606,16 +630,9 @@ run(
   connectIndicator => expect(connectIndicator).toEqual(`Q`)
 )
 
-run(
+runCateringCode(
   `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620                         1                                      C`,
-  cateringCode => expect(cateringCode).toBeNull()
-)
-
-run(
-  `basicSchedule`, `cateringCode`,
-  `BSNTTRUID180620                         1                             QBER     C`,
-  cateringCode => expect(cateringCode).toEqual(`QBER`)
+  code => `BSNTTRUID180620                         1                             ${code}     C`,
 )
 
 run(
@@ -1228,16 +1245,9 @@ run(
   connectIndicator => expect(connectIndicator).toEqual(`Q`)
 )
 
-run(
+runCateringCode(
   `changesEnRoute`, `cateringCode`,
-  `CRLOCATION          1                                                           `,
-  cateringCode => expect(cateringCode).toBeNull()
-)
-
-run(
-  `changesEnRoute`, `cateringCode`,
-  `CRLOCATION          1                             CATE                          `,
-  cateringCode => expect(cateringCode).toEqual(`CATE`)
+  code => `CRLOCATION          1                             ${code}                          `
 )
 
 run(
