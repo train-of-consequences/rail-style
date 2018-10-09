@@ -126,6 +126,21 @@ const runSleepers = (lineName, fragmentName, lineFactory) => {
   )
 }
 
+const runReservations = (lineName, fragmentName, lineFactory) => {
+  run(
+    lineName, fragmentName, lineFactory(` `),
+    reservations => expect(reservations).toBeNull()
+  )
+  const runReservation = (from, to) => run(
+    lineName, fragmentName, lineFactory(from),
+    reservations => expect(reservations).toEqual(to)
+  )
+  runReservation(`A`, `seatsCompulsory`)
+  runReservation(`R`, `seatsRecommended`)
+  runReservation(`S`, `seatsPossibleFromAnyStation`)
+  runReservation(`E`, `bicyclesEssential`)
+}
+
 run(
   `headerRecord`, `recordIdentity`,
   `HDTest  File  Identity2308161627T  F  R       FO190217240726                    `,
@@ -574,16 +589,9 @@ runSleepers(
   code => `BSNTTRUID180620                         1                          ${code}           C`
 )
 
-run(
+runReservations(
   `basicSchedule`, `reservations`,
-  `BSNTTRUID180620                         1                                      C`,
-  reservations => expect(reservations).toBeNull()
-)
-
-run(
-  `basicSchedule`, `reservations`,
-  `BSNTTRUID180620                         1                           Q          C`,
-  reservations => expect(reservations).toEqual(`Q`)
+  code => `BSNTTRUID180620                         1                           ${code}          C`,
 )
 
 run(
@@ -1203,10 +1211,9 @@ run(
   reservations => expect(reservations).toBeNull()
 )
 
-run(
+runReservations(
   `changesEnRoute`, `reservations`,
-  `CRLOCATION          1                           Q                               `,
-  reservations => expect(reservations).toEqual(`Q`)
+  code => `CRLOCATION          1                           ${code}                               `
 )
 
 run(

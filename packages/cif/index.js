@@ -81,6 +81,15 @@ const sleepers = {
   })
 }
 
+const reservations = {
+  reservations: fragments.enumOptional({
+    "A": `seatsCompulsory`,
+    "R": `seatsRecommended`,
+    "S": `seatsPossibleFromAnyStation`,
+    "E": `bicyclesEssential`
+  })
+}
+
 export default {
   headerRecord: [
     { recordIdentity: fragments.constantRequired(`HD`) },
@@ -185,7 +194,7 @@ export default {
     { operatingChars: fragments.stringOptional(6) },
     { trainClass: fragments.stringOptional(1) },
     sleepers,
-    { reservations: fragments.stringOptional(1) },
+    reservations,
     { connectIndicator: fragments.stringOptional(1) },
     { cateringCode: fragments.stringOptional(4) },
     { serviceBranding: fragments.stringOptional(4) },
@@ -259,7 +268,7 @@ export default {
     { operatingChars: fragments.stringOptional(6) },
     { trainClass: fragments.stringOptional(1) },
     sleepers,
-    { reservations: fragments.stringOptional(1) },
+    reservations,
     { connectIndicator: fragments.stringOptional(1) },
     { cateringCode: fragments.stringOptional(4) },
     { serviceBranding: fragments.stringOptional(4) },
