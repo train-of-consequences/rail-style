@@ -1,0 +1,30 @@
+{
+  "name": "@rail-style/bank-holidays",
+  "description": "A copy of the [bank holidays JSON provided by gov.uk](https://www.gov.uk/bank-holidays.json). Contains public sector information licensed under the Open Government Licence v3.0.",
+  "version": "0.0.11",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/train-of-consequences/rail-style"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index.json"
+  ],
+  "main": "index.json",
+  "scripts": {
+    "download": "babel-node download",
+    "babelTests": "babel tests.js --out-file tests.babel.js",
+    "jasmine": "jasmine JASMINE_CONFIG_PATH=jasmine.json"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "7.1.2",
+    "@babel/node": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "jasmine": "^3.2.0",
+    "jsonschema": "^1.2.4"
+  }
+}

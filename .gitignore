@@ -3,3 +3,4 @@ node_modules
 *.babel.js
 *.min.js
 *.coverage.js
+index.json

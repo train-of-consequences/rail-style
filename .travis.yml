@@ -54,5 +54,20 @@ jobs:
         tags: true
         branch: master
         repo: train-of-consequences/rail-style
+  - stage: "@rail-style/bank-holidays"
+    install:
+    - npm install --prefix packages/bank-holidays
+    script:
+    - npm run-script download --prefix packages/bank-holidays
+    - npm run-script babelTests --prefix packages/bank-holidays
+    - npm run-script jasmine --prefix packages/bank-holidays
+    deploy:
+    - provider: script
+      script: echo $NPM_TOKEN > ~/.npmrc && npm publish packages/bank-holidays
+      skip_cleanup: true
+      on:
+        tags: true
+        branch: master
+        repo: train-of-consequences/rail-style
 env:
   secure: c7azoxIL9rlZuEbFL34N29wXkIy11LvPgPcFD5XTnFIiXtQ4mvGMsRNggD4Zudc4RRbDFKQ38OWY6QxB0z3wJkzn02O77udLDmj/oX997dVUEAeKYE4ADP31RreffDWaoO/eQGNlG3g9SD18belUDbPA2PZrsAJLEipoERdPuBQCnjgxvpUMKKhyBW9DX7EEH3ciautba22yU61jSCP+xOqz95N62zgZjV2kuxvIgPsM8X44pRVga3IZox6SrOYBkoqV8OWJoH6aZXjzlqQi24hZjsUZJRveRDQ7BxflqKYTcl2JddozygX4kz1/Eg3r1Z6lni/2mSqRlmaxeXibxuyLW3fRP5fdRQNinpNyLzFFUvLKd53gH3GywozycD7N+ES0CvBrKQJfTNI/vd+a1xRJVEGJ/P1CuBi3vC87ePA/kxR/yaDQWfWyBJ+EXdb7decO727pRJ7AeByel4d/yWUuwqFAWzfMOXJBHGDUWagCzJPewDu3IFy5HvBTldTMme2lCOxnyZGH2F6+lI+JDdZRy1kyhpf06H7pvglL6pkZlK0Qnu3JBXx2DYUGEU85oFwesB3QXH/amjwPIiSOhrFbwz2BsTr4FL3b92LpaGX+NnwDx1IF6NeI9wAS5TrFt/+MXYf2XyuovK5H+J6zD+X6dF8p+uAHA2GO1rrGzRA=

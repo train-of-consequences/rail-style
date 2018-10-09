@@ -23,6 +23,13 @@
       "problemMatcher": []
     },
     {
+      "label": "@rail-style/bank-holidays",
+      "type": "shell",
+      "command": "cd packages/bank-holidays && npm install && npm run-script download && npm run-script babelTests && npm run-script jasmine",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
       "label": "Bump Version",
       "type": "shell",
       "command": "cd tools && npm install && npm run-script bump-version",
