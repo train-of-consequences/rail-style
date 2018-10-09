@@ -40,25 +40,25 @@ Fragments which can be used to describe a fixed-width format.
 | -                                              | `        `     | null                 | null                      |
 | yyyymmddRequired                               | `20231025`     | Moment.js (UK-local) | 2023-10-25T00:00:00+01:00 |
 | ddmmyyhhmmOptional                             | `2510231637`   | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
-| -                                              | `      `       | null                 | null                      |
+| -                                              | `          `   | null                 | null                      |
 | ddmmyyhhmmRequired                             | `2510231637`   | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
 | ddmmyyyyhhmmOptional                           | `251020231637` | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
-| -                                              | `        `     | null                 | null                      |
+| -                                              | `            ` | null                 | null                      |
 | ddmmyyyyhhmmRequired                           | `251020231637` | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
 | yymmddhhmmOptional                             | `2310251637`   | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
-| -                                              | `      `       | null                 | null                      |
+| -                                              | `          `   | null                 | null                      |
 | yymmddhhmmRequired                             | `2310251637`   | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
 | yyyymmddhhmmOptional                           | `202310251637` | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
-| -                                              | `        `     | null                 | null                      |
+| -                                              | `            ` | null                 | null                      |
 | yyyymmddhhmmRequired                           | `202310251637` | Moment.js (UK-local) | 2023-10-25T16:37:00+01:00 |
 | hhmmOptional                                   | `1637`         | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
-| -                                              | `        `     | null                 | null                      |
+| -                                              | `    `         | null                 | null                      |
 | hhmmRequired                                   | `1637`         | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
 | hhmmhOptional                                  | `1637 `        | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
-| hhmmhOptional                                  | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
+| -                                              | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
 | -                                              | `     `        | null                 | null                      |
 | hhmmhRequired                                  | `1637 `        | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
-| hhmmhRequired                                  | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
+| -                                              | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
 | dayFlags                                       | 0000000        | Array of String      | []                        |
 | -                                              | 1000000        | Array of String      | [`monday`]                |
 | -                                              | 0100000        | Array of String      | [`tuesday`]               |
