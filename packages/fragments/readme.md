@@ -54,3 +54,8 @@ Fragments which can be used to describe a fixed-width format.
 | hhmmOptional                                   | `1637`         | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
 | -                                              | `        `     | null                 | null                      |
 | hhmmRequired                                   | `1637`         | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
+| hhmmhOptional                                  | `1637 `        | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
+| hhmmhOptional                                  | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |
+| -                                              | `     `        | null                 | null                      |
+| hhmmhRequired                                  | `1637 `        | Moment.js (UK-local) | 0001-01-01T16:37:00+01:00 |
+| hhmmhRequired                                  | `1637H`        | Moment.js (UK-local) | 0001-01-01T16:37:30+01:00 |

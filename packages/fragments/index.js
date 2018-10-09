@@ -111,6 +111,27 @@ export const hhmmRequired = {
   parse: convertHhmm
 }
 
+const convertHhmmh = text => {
+  const toOutput = convertHhmm(text.slice(0, 4))
+  if (text.endsWith(`H`)) {
+    return toOutput.add(30, `seconds`)
+  } else {
+    return toOutput
+  }
+}
+
+export const hhmmhOptional = {
+  regex: `[0-9]{4}[ H]| {5}`,
+  parse: text => text != `     `
+    ? convertHhmmh(text)
+    : null
+}
+
+export const hhmmhRequired = {
+  regex: `[0-9]{4}[ H]`,
+  parse: convertHhmmh
+}
+
 export const constantOptional = constant => ({
   regex: `${escapeStringRegexp(constant)}| {${constant.length}}`,
   parse: text => text.trim() || null
