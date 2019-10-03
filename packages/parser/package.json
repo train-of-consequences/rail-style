@@ -28,7 +28,7 @@
     "@rail-style/fragments": "0.0.6",
     "babel-plugin-istanbul": "5.1.0",
     "cross-env": "5.2.0",
-    "jasmine": "3.2.0",
+    "jasmine": "3.5.0",
     "nyc": "13.0.1",
     "uglify-js": "3.4.9"
   },
