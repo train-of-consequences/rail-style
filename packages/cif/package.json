@@ -22,9 +22,9 @@
     "uglify-js": "uglifyjs index.babel.js --compress --mangle --toplevel --output index.min.js"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.2",
-    "@babel/core": "7.1.2",
-    "@babel/preset-env": "7.1.0",
+    "@babel/cli": "7.25.9",
+    "@babel/core": "7.25.9",
+    "@babel/preset-env": "7.25.9",
     "@rail-style/parser": "0.0.7",
     "babel-plugin-istanbul": "^5.1.0",
     "cross-env": "^5.2.0",
